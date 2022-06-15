@@ -1,0 +1,10 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (c+++sdl.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  actor.cpp
+  hellogame.cpp
+  component.cpp
+  scene.cpp
+  staticspritecomponent.cpp
+C:\personale\programming\projects\pacman\pacman-c++\source\staticspritecomponent.cpp(29,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\personale\programming\projects\pacman\pacman-c++\source\staticspritecomponent.cpp(30,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  pacman-c++.vcxproj -> C:\personale\programming\projects\pacman\x64\Debug\pacman-c++.exe

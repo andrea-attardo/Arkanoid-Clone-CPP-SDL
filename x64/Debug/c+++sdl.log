@@ -1,0 +1,10 @@
+﻿  actor.cpp
+  hellogame.cpp
+  component.cpp
+  scene.cpp
+  staticspritecomponent.cpp
+C:\personale\programming\projects\pacman\c+++sdl\source\staticspritecomponent.cpp(29,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\personale\programming\projects\pacman\c+++sdl\source\staticspritecomponent.cpp(30,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  LINK : C:\personale\programming\projects\pacman\x64\Debug\c+++sdl.exe not found or not built by the last incremental link; performing full link
+  c+++sdl.vcxproj -> C:\personale\programming\projects\pacman\x64\Debug\c+++sdl.exe

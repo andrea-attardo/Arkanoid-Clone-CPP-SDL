@@ -1,0 +1,23 @@
+
+PACMAN LEARNING REFERENCES:
+
+Game Coding Complete book
+//chapter 6 Actors and component
+
+https://gameprogrammingpatterns.com/introduction.html 
+//component pattern
+
+SDL Game Development book
+//Working out with game object
+
+Abstractions c++ book
+//Design Classes chapter
+
+A Tour of C++ book
+//User defined type and Classes chapters 
+
+https://lazyfoo.net/tutorials/SDL/index.php
+//ho finito il tutorial n° 4
+
+http://wiki.libsdl.org/APIByCategory
+https://wiki.libsdl.org/wiki/index
