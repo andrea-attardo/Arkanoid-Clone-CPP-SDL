@@ -1,8 +1,12 @@
 #include <iostream>
 #include <cstdio>
 #include "SDL.h"
-#include "hellogame.h"
+#include "game.h"
+#include "actor.h"
+#include "component.h"
 #include "staticspritecomponent.h"
+#include "bouncemovcomponent.h"
+
 
 const int		SCREEN_WIDTH		= 1024;
 const int		SCREEN_HEIGTH		= 768;
@@ -10,18 +14,28 @@ const int		SCREEN_HEIGTH		= 768;
 
 SDL_Window*		gWindow				= NULL;
 SDL_Surface*	gWindowSurface		= NULL;
+SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
-SDL_Rect		destRect;
+Actor			ghost1;
+Component*		pGhost1Sprite 		= NULL;
+Component*		pGhost1Movement		= NULL; 
 
-StatiSpriteComponent ball;
 
 int main(int argc, char* args[]) {
 
-	init();
-	
-	ball.load( "assets/palla.bmp" );
-	
+	init();	
+
+	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
+	pGhost1Sprite = &ghost1Sprite;
+
+	BounceMovComponent ghost1Movement( gWindowSurface, &ghost1 );
+	pGhost1Movement = &ghost1Movement;
+
+	ghost1.addComponent( pGhost1Sprite );
+	ghost1.addComponent( pGhost1Movement );
+	ghost1.load();
+
 
 	//game loop
 	while ( !gQuit ) {
@@ -57,7 +71,6 @@ void init() {
 }
 
 
-
 void processEvents() {
 
 	while ( SDL_PollEvent( &gEvent ) ) {
@@ -71,30 +84,14 @@ void processEvents() {
 
 void updateGameLogic() {
 
-	//da mettere in movementcomponent
-	/*
-	//Ball's bouncing logic
-	gBall_x += gBall_vx;
-	gBall_y += gBall_vy;
-	
-	if ( gBall_x < 0 || (gBall_x + gBall->w)  >= gWindowSurface->w )
-	{
-		gBall_vx = -gBall_vx;
-	}
-	
-	if ( gBall_y < 0 || ( gBall_y + gBall->h ) >= gWindowSurface->h )
-	{
-		gBall_vy = -gBall_vy;
-	}
-	*/
+	ghost1.update();
 }
 
 
 void render() {
 	if ( SDL_FillRect(gWindowSurface, NULL, SDL_MapRGB( gWindowSurface->format, 0, 0, 0) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
 
-	ball.render( gWindowSurface, destRect );
-
+	ghost1.render( gWindowSurface, gDestRect );
 
 	SDL_UpdateWindowSurface( gWindow );
 

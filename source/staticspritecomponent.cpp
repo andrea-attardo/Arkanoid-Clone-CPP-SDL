@@ -1,18 +1,19 @@
+
 #include <cstdio>
-#include "SDL.h"
+#include "component.h"
 #include "staticspritecomponent.h"
 
 
-	StatiSpriteComponent::StatiSpriteComponent() {
+	StaticSpriteComponent::StaticSpriteComponent( const char* filename, Actor* actor ) {
+		pActor			= actor;
 		image			= NULL;
-		x				= 0.0;
-		y				= 0.0;
-		vx				= 5.0;
-		vy				= 5.0;
+		imgpath			= filename;
+		x				= actor->getX();
+		y				= actor->getY();
 	}
 
 
-	void StatiSpriteComponent::load( const char* imgpath ) {
+	void StaticSpriteComponent::load() {
 		image = SDL_LoadBMP( imgpath );
 		if ( image == NULL ) {
 			printf( "Loading image %s failed\n", imgpath );
@@ -20,13 +21,16 @@
 	}
 
 
-	 void StatiSpriteComponent::render( SDL_Surface* destsur, SDL_Rect &destrect ) {
+	 void StaticSpriteComponent::render( SDL_Surface* destsur, SDL_Rect& destrect ) {
 		if ( image != NULL ) {
 			destrect.w = image->w;
 			destrect.h = image->h;
 		} else printf( "image not prevoius loaded\n " );
 
-		destrect.x = x;
-		destrect.y = y;
+		destrect.x = pActor->getX();
+		destrect.y = pActor->getY();
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
 	}
+
+	 void StaticSpriteComponent::update(){}
+

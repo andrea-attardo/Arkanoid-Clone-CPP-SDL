@@ -3,23 +3,27 @@
 #define STATICSPRITECOMPONENT_H
 
 #include "SDL.h"
+#include "actor.h"
 
-class StatiSpriteComponent { //public Component
+class StaticSpriteComponent: public Component { 
 
 public:
-	StatiSpriteComponent();
+	StaticSpriteComponent( const char* filename, Actor* actor );
 
-//protected:
-	void load( const char* imgpath );
+	void load();
 
 	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
+	void update();
+
+
 private:
-	SDL_Surface* image;
-	double			x;
-	double			y;
-	double			vx;
-	double			vy;
+	SDL_Surface*	image;
+	Actor*			pActor;
+	const char*		imgpath;
+	int				x;
+	int				y;
+
 };
 
 

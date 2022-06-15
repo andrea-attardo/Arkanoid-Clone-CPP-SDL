@@ -137,13 +137,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\actor.cpp" />
-    <ClCompile Include="source\hellogame.cpp" />
-    <ClCompile Include="source\component.cpp" />
-    <ClCompile Include="source\scene.cpp" />
+    <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\component.h" />
+    <ClCompile Include="source\scene.h" />
     <ClCompile Include="source\staticspritecomponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\hellogame.h" />
+    <ClInclude Include="source\actor.h" />
+    <ClInclude Include="source\bouncemovcomponent.h" />
+    <ClInclude Include="source\game.h" />
     <ClInclude Include="source\staticspritecomponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
