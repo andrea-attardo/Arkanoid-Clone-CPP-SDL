@@ -136,7 +136,6 @@
     <Text Include="docs\pacman-learning-references.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\actor.cpp" />
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\component.h" />
     <ClCompile Include="source\scene.h" />

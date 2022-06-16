@@ -15,21 +15,26 @@ public:
 		y = 0;
 	}
 
-	void addComponent( Component* comp) {
-		components.push_back( comp );
-	}
-
 	void load() {
-		components[0]->load();
-		components[1]->load();
+		for ( auto i : components ) {
+			i->load();
+		}
 	}
 
 	void update() {
-		components[1]->update();
+		for ( auto i : components ) {
+			i->update();
+		}
 	}
 
 	void render( SDL_Surface* destsur, SDL_Rect& destrect ) {
-		components[0]->render(destsur, destrect);
+		for ( auto i : components ) {
+			i->render( destsur, destrect );
+		}
+	}
+
+	void addComponent( Component* comp ) {
+		components.push_back( comp );
 	}
 
 	int getX() {

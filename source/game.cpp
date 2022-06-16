@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "SDL.h"
 #include "game.h"
+#include "scene.h"
 #include "actor.h"
 #include "component.h"
 #include "staticspritecomponent.h"
@@ -17,14 +18,13 @@ SDL_Surface*	gWindowSurface		= NULL;
 SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
+
 Actor			ghost1;
 Component*		pGhost1Sprite 		= NULL;
 Component*		pGhost1Movement		= NULL; 
 
 
-int main(int argc, char* args[]) {
-
-	init();	
+void load() {
 
 	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
 	pGhost1Sprite = &ghost1Sprite;
@@ -34,9 +34,17 @@ int main(int argc, char* args[]) {
 
 	ghost1.addComponent( pGhost1Sprite );
 	ghost1.addComponent( pGhost1Movement );
+
 	ghost1.load();
 
+}
 
+int main(int argc, char* args[]) {
+
+	init();
+
+	load();
+	
 	//game loop
 	while ( !gQuit ) {
 

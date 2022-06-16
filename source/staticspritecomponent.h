@@ -23,7 +23,6 @@ private:
 	const char*		imgpath;
 	int				x;
 	int				y;
-
 };
 
 
