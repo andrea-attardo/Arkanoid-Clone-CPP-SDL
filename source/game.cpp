@@ -12,39 +12,43 @@
 const int		SCREEN_WIDTH		= 1024;
 const int		SCREEN_HEIGTH		= 768;
 
-
+//global variables
 SDL_Window*		gWindow				= NULL;
 SDL_Surface*	gWindowSurface		= NULL;
 SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
-
 Actor			ghost1;
-Component*		pGhost1Sprite 		= NULL;
-Component*		pGhost1Movement		= NULL; 
+Actor			ghost2;
 
-
-void load() {
-
-	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
-	pGhost1Sprite = &ghost1Sprite;
-
-	BounceMovComponent ghost1Movement( gWindowSurface, &ghost1 );
-	pGhost1Movement = &ghost1Movement;
-
-	ghost1.addComponent( pGhost1Sprite );
-	ghost1.addComponent( pGhost1Movement );
-
-	ghost1.load();
-
-}
 
 int main(int argc, char* args[]) {
 
 	init();
 
-	load();
+	//load ghost1
+	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
+	BounceMovComponent ghost1Movement( gWindowSurface, &ghost1 );
+
+	ghost1.addComponent( &ghost1Sprite );
+	ghost1.addComponent( &ghost1Movement );
+
+	ghost1.load();
 	
+
+	//load ghost2
+	StaticSpriteComponent ghost2Sprite( "assets/ghost2.bmp", &ghost2 );
+	BounceMovComponent ghost2Movement( gWindowSurface, &ghost2 );
+
+	ghost2.addComponent( &ghost2Sprite );
+	ghost2.addComponent( &ghost2Movement );
+
+	ghost2.setX( 500 );
+	ghost2.setY( 100 );
+
+	ghost2.load();
+
+
 	//game loop
 	while ( !gQuit ) {
 
@@ -93,6 +97,7 @@ void processEvents() {
 void updateGameLogic() {
 
 	ghost1.update();
+	ghost2.update();
 }
 
 
@@ -100,6 +105,7 @@ void render() {
 	if ( SDL_FillRect(gWindowSurface, NULL, SDL_MapRGB( gWindowSurface->format, 0, 0, 0) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
 
 	ghost1.render( gWindowSurface, gDestRect );
+	ghost2.render( gWindowSurface, gDestRect );
 
 	SDL_UpdateWindowSurface( gWindow );
 
