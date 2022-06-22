@@ -1,6 +1,4 @@
-﻿  game.cpp
-C:\personale\programming\projects\pacman\pacman-c++\source\bouncemovcomponent.h(24,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\personale\programming\projects\pacman\pacman-c++\source\bouncemovcomponent.h(25,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  scene.cpp
   scene.h
   Generating Code...
   pacman-c++.vcxproj -> C:\personale\programming\projects\pacman\x64\Debug\pacman-c++.exe

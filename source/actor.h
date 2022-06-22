@@ -10,48 +10,23 @@
 class Actor {
 public:
 
-	Actor() {
-		x = 0;
-		y = 0;
-	}
+	Actor();
 
-	void load() {
-		for ( auto i : components ) {
-			i->load();
-		}
-	}
+	void load();
 
-	void update() {
-		for ( auto i : components ) {
-			i->update();
-		}
-	}
+	void update();
 
-	void render( SDL_Surface* destsur, SDL_Rect& destrect ) {
-		for ( auto i : components ) {
-			i->render( destsur, destrect );
-		}
-	}
+	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
-	void addComponent( Component* comp ) {
-		components.push_back( comp );
-	}
+	void addComponent( Component* comp );
 
-	int getX() {
-		return x;
-	}
+	int getX();
 
-	int getY() {
-		return y;
-	}
+	int getY();
 
-	void setX( int xc) {
-		x = xc;
-	}
+	void setX( int xc );
 
-	void setY( int yc ) {
-		y = yc;
-	}
+	void setY( int yc );
 
 private:
 	std::vector<Component*> components;

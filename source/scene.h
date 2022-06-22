@@ -1,8 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <vector>
 #include "SDL.h"
+#include <vector>
 #include "actor.h"
 
 class Scene {
@@ -10,27 +10,14 @@ class Scene {
 public:
 
 
-	void load(){
-		for ( auto i : actors ) {
-			i->load();
-		}
-	}
+	void load();
 
-	void update(){
-		for ( auto i : actors ) {
-			i->update();
-		}
-	}
-	
-	void render( SDL_Surface* destsur, SDL_Rect& destrect ) {
-		for ( auto i : actors ) {
-			i->render( destsur, destrect );
-		}
-	}
+	void update();
+
+	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
 private:
 	std::vector<Actor*> actors;
 };
 
 #endif // !SCENE_H
-

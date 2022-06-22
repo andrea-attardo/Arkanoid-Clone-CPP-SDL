@@ -1,7 +1,6 @@
 #ifndef HELLOSDL_H
 #define HELLOSDL_H
 
-#include "sdl.h"
 
 void init();
 void processEvents();
