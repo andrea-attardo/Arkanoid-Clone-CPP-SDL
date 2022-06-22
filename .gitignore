@@ -32,5 +32,6 @@
 *.app
 /.vs
 
-#debug folder 
+#debug files 
 x64\Debug
+*.tlog
