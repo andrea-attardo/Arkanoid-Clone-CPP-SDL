@@ -1,6 +1,5 @@
 
 #include <cstdio>
-#include "component.h"
 #include "staticspritecomponent.h"
 
 
@@ -21,7 +20,7 @@
 	}
 
 
-	 void StaticSpriteComponent::render( SDL_Surface* destsur, SDL_Rect& destrect ) {
+	void StaticSpriteComponent::render( SDL_Surface* destsur, SDL_Rect& destrect ) {
 		if ( image != NULL ) {
 			destrect.w = image->w;
 			destrect.h = image->h;
@@ -32,5 +31,5 @@
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
 	}
 
-	 void StaticSpriteComponent::update(){}
+	void StaticSpriteComponent::update(){}
 
