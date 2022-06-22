@@ -18,8 +18,7 @@ SDL_Surface*	gWindowSurface		= NULL;
 SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
-Actor			ghost1;
-Actor			ghost2;
+Scene			level1;
 
 
 int main(int argc, char* args[]) {
@@ -27,6 +26,7 @@ int main(int argc, char* args[]) {
 	init();
 
 	//load ghost1
+	Actor			ghost1;
 	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
 	BounceMovComponent ghost1Movement( gWindowSurface, &ghost1 );
 
@@ -34,9 +34,10 @@ int main(int argc, char* args[]) {
 	ghost1.addComponent( &ghost1Movement );
 
 	ghost1.load();
-	
+
 
 	//load ghost2
+	Actor			ghost2;
 	StaticSpriteComponent ghost2Sprite( "assets/ghost2.bmp", &ghost2 );
 	BounceMovComponent ghost2Movement( gWindowSurface, &ghost2 );
 
@@ -44,9 +45,16 @@ int main(int argc, char* args[]) {
 	ghost2.addComponent( &ghost2Movement );
 
 	ghost2.setX( 500 );
-	ghost2.setY( 100 );
+	ghost2.setY( 300 );
 
 	ghost2.load();
+
+
+	//load scene
+	level1.addActor( &ghost1 );
+	level1.addActor( &ghost2 );
+
+	level1.load();
 
 
 	//game loop
@@ -96,16 +104,14 @@ void processEvents() {
 
 void updateGameLogic() {
 
-	ghost1.update();
-	ghost2.update();
+	level1.update();
 }
 
 
 void render() {
 	if ( SDL_FillRect(gWindowSurface, NULL, SDL_MapRGB( gWindowSurface->format, 0, 0, 0) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
 
-	ghost1.render( gWindowSurface, gDestRect );
-	ghost2.render( gWindowSurface, gDestRect );
+	level1.render( gWindowSurface, gDestRect );
 
 	SDL_UpdateWindowSurface( gWindow );
 

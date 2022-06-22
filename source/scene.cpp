@@ -17,3 +17,7 @@ void Scene::render( SDL_Surface* destsur, SDL_Rect& destrect ) {
 		i->render( destsur, destrect );
 	}
 }
+
+void Scene::addActor( Actor* actor ) {
+	actors.push_back( actor );
+}

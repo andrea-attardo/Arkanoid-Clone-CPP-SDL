@@ -16,6 +16,8 @@ public:
 
 	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
+	void addActor( Actor* actor );
+
 private:
 	std::vector<Actor*> actors;
 };
