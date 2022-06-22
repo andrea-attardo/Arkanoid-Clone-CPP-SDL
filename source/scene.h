@@ -9,6 +9,7 @@ class Scene {
 
 public:
 
+	Scene();
 
 	void load();
 

@@ -1,5 +1,7 @@
 #include "scene.h"
 
+Scene::Scene() {}
+
 void Scene::load() {
 	for ( auto i : actors ) {
 		i->load();

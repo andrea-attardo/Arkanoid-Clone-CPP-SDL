@@ -12,11 +12,11 @@ public:
 
 	BounceMovComponent( SDL_Surface* winsur, Actor* actor );
 
-	void load() {};
+	void load();
 
 	void update();
 
-	void render( SDL_Surface* destsur, SDL_Rect& destrect ) {};
+	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
 
 private:

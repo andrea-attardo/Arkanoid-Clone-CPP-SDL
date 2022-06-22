@@ -26,7 +26,7 @@ int main(int argc, char* args[]) {
 	init();
 
 	//load ghost1
-	Actor			ghost1;
+	Actor	ghost1;
 	StaticSpriteComponent ghost1Sprite( "assets/ghost1.bmp", &ghost1 );
 	BounceMovComponent ghost1Movement( gWindowSurface, &ghost1 );
 
@@ -37,7 +37,7 @@ int main(int argc, char* args[]) {
 
 
 	//load ghost2
-	Actor			ghost2;
+	Actor	ghost2;
 	StaticSpriteComponent ghost2Sprite( "assets/ghost2.bmp", &ghost2 );
 	BounceMovComponent ghost2Movement( gWindowSurface, &ghost2 );
 
