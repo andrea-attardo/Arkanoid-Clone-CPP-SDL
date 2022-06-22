@@ -14,7 +14,7 @@ const int		SCREEN_HEIGTH		= 768;
 
 //global variables
 SDL_Window*		gWindow				= NULL;
-SDL_Surface*	gWindowSurface		= NULL;
+SDL_Surface*    gWindowSurface      = NULL;
 SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
@@ -115,7 +115,6 @@ void render() {
 
 	SDL_UpdateWindowSurface( gWindow );
 
-	SDL_Delay( 16 );
 }
 
 
