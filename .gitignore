@@ -31,3 +31,6 @@
 *.out
 *.app
 /.vs
+
+#debug folder 
+/x64
