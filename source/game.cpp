@@ -23,14 +23,14 @@ SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
 Scene			level1;
-SceneFactory	scene;
+//SceneFactory	scene;
 
 int main(int argc, char* args[]) {
 
 
 	init();
 
-	scene.loadSceneFromFile( "game/level1.json" );
+	//scene.loadSceneFromFile( "game/level1.json" );
 
 	//load ghost1
 	Actor	ghost1;

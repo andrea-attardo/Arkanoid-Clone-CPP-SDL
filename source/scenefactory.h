@@ -20,7 +20,7 @@ public:
 
             sceneFile >> sceneDescriptor;
 
-            std::cout << sceneDescriptor["window"];
+            //std::cout << sceneDescriptor["window"];
 
         }
         catch ( std::runtime_error& err ) {
@@ -32,7 +32,6 @@ public:
 private:
     std::ifstream sceneFile;
     json sceneDescriptor;
-    //std::unordered_map<std::string, std::any>  sceneDescriptor;
 };
 
 
