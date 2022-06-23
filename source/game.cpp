@@ -1,13 +1,17 @@
 #include <iostream>
+#include <fstream>
 #include <cstdio>
 #include "SDL.h"
+#include "json.hpp"
 #include "game.h"
 #include "scene.h"
+#include "scenefactory.h"
 #include "actor.h"
 #include "component.h"
 #include "staticspritecomponent.h"
 #include "bouncemovcomponent.h"
 
+using json = nlohmann::json;
 
 const int		SCREEN_WIDTH		= 1024;
 const int		SCREEN_HEIGTH		= 768;
@@ -19,11 +23,14 @@ SDL_Rect		gDestRect;
 SDL_Event		gEvent;
 bool			gQuit				= false;
 Scene			level1;
-
+SceneFactory	scene;
 
 int main(int argc, char* args[]) {
 
+
 	init();
+
+	scene.loadSceneFromFile( "game/level1.json" );
 
 	//load ghost1
 	Actor	ghost1;

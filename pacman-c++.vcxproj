@@ -108,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>C:\personale\programming\packages\SDL2_image-2.0.5\include;C:\personale\programming\packages\SDL2-2.0.22\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,12 +143,15 @@
     <ClCompile Include="source\component.h" />
     <ClCompile Include="source\scene.cpp" />
     <ClCompile Include="source\scene.h" />
+    <ClCompile Include="source\scenefactory.cpp" />
     <ClCompile Include="source\staticspritecomponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\actor.h" />
     <ClInclude Include="source\bouncemovcomponent.h" />
     <ClInclude Include="source\game.h" />
+    <ClInclude Include="source\json.hpp" />
+    <ClInclude Include="source\scenefactory.h" />
     <ClInclude Include="source\staticspritecomponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
