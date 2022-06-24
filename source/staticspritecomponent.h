@@ -15,8 +15,6 @@ public:
 
 	void render( SDL_Surface* destsur, SDL_Rect& destrect );
 
-	void update();
-
 
 private:
 	SDL_Surface*	image;

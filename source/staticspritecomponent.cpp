@@ -31,5 +31,3 @@
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
 	}
 
-	void StaticSpriteComponent::update(){}
-

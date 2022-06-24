@@ -8,7 +8,7 @@
 		vy = 1;
 	}
 
-	void BounceMovComponent::load() {}
+	
 
 	void BounceMovComponent::update() {
 
@@ -27,4 +27,4 @@
 
 	}
 
-	void BounceMovComponent::render( SDL_Surface* destsur, SDL_Rect& destrect ) {}
+	

@@ -6,12 +6,12 @@
 
 class Component {
 public:
-	
-	virtual void load() = 0;
 
-	virtual void render( SDL_Surface* destsur, SDL_Rect& destrect ) = 0;
+	virtual void load() {};
 
-	virtual void update() = 0;
+	virtual void render( SDL_Surface* destsur, SDL_Rect& destrect ) {};
+
+	virtual void update() {};
 
 };
 
