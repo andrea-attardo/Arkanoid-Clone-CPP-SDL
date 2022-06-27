@@ -28,7 +28,7 @@ public:
 
 	void render( SDL_Surface* destsur );
 
-	void addActor( Actor* actor );
+	void addActor( Actor actor );
 
     void loadSceneFromFile( std::string fileName ) {
 
@@ -43,32 +43,31 @@ public:
             sceneFile >> sceneDescriptor;
 
             for ( json actorDescr : sceneDescriptor["actors"] ) {
-                Actor actor;
-                actor.setName( actorDescr["name"] );
-                actor.setX( actorDescr["x"] );
-                actor.setY( actorDescr["y"] );
-
-                Component comp;
+                Actor* actor = new Actor();
+                actor->setName( actorDescr["name"] );
+                actor->setX( actorDescr["x"] );
+                actor->setY( actorDescr["y"] );
+                
                 for ( json compDescr : actorDescr["components"] ) {
                     if ( compDescr["type"] == "StaticSpriteComponent" )
                     {
-                        StaticSpriteComponent sprite( compDescr["filename"], &actor );
-                        comp = sprite;
+                        StaticSpriteComponent* sprite = new StaticSpriteComponent( compDescr["filename"], actor );
+                        actor->addComponent( sprite );
                     }
                     else if ( compDescr["type"] == "BounceMovComponent" )
                     {
-                        BounceMovComponent bounce( &actor );
+                        BounceMovComponent* bounce = new BounceMovComponent ( actor );
                         json boundrectDescr = compDescr["boundrect"];
-                        bounce.setBoundRect( boundrectDescr["x"], boundrectDescr["y"],
-                                             boundrectDescr["w"], boundrectDescr["h"] );
-                        bounce.setVx( compDescr["vx"] );
-                        bounce.setVy( compDescr["vy"] );
-                        comp = bounce;
+                        bounce->setBoundRect( boundrectDescr["x"], boundrectDescr["y"],
+                                              boundrectDescr["w"], boundrectDescr["h"] );
+                        bounce->setVx( compDescr["vx"] );
+                        bounce->setVy( compDescr["vy"] );
+                        actor->addComponent( bounce );
                     }
-                    actor.addComponent( &comp );
+                    
                 }
 
-                this->addActor( &actor );
+                this->addActor( *actor );
 
             }
 
@@ -78,7 +77,7 @@ public:
     }
 
 private:
-	std::vector<Actor*> actors;
+	std::vector<Actor> actors;
     std::ifstream sceneFile;
 };
 

@@ -6,22 +6,46 @@
       "y": 0,
       "components": [
         {
-          "name":  "sprite",
+          "name": "sprite",
           "type": "StaticSpriteComponent",
           "filename": "assets/ghostblue.bmp"
         },
         {
           "name": "bouncing",
           "type": "BounceMovComponent",
-          "filename": "assets/ghostorange.bmp",
           "boundrect": {
             "x": 0,
             "y": 0,
             "w": 1024,
             "h": 768
           },
-          "vx":  1,
-          "vy":  1
+          "vx": 1,
+          "vy": 1
+        }
+      ]
+    },
+
+    {
+      "name": "ghostorange",
+      "x": 100,
+      "y": 200,
+      "components": [
+        {
+          "name": "sprite",
+          "type": "StaticSpriteComponent",
+          "filename": "assets/ghostorange.bmp"
+        },
+        {
+          "name": "bouncing",
+          "type": "BounceMovComponent",
+          "boundrect": {
+            "x": 0,
+            "y": 0,
+            "w": 1024,
+            "h": 768
+          },
+          "vx": 2,
+          "vy": 2
         }
       ]
     }

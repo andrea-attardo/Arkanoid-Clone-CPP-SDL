@@ -25,11 +25,9 @@ Scene			level1;
 
 int main(int argc, char* args[]) {
 
-
 	init();
 
 	level1.loadSceneFromFile( "game/level1.json" );
-
 
 	//game loop
 	while ( !gQuit ) {
