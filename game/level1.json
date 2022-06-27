@@ -1,3 +1,29 @@
 {
-  "window": 800
+  "actors": [
+    {
+      "name": "ghostblue",
+      "x": 0,
+      "y": 0,
+      "components": [
+        {
+          "name":  "sprite",
+          "type": "StaticSpriteComponent",
+          "filename": "assets/ghostblue.bmp"
+        },
+        {
+          "name": "bouncing",
+          "type": "BounceMovComponent",
+          "filename": "assets/ghostorange.bmp",
+          "boundrect": {
+            "x": 0,
+            "y": 0,
+            "w": 1024,
+            "h": 768
+          },
+          "vx":  1,
+          "vy":  1
+        }
+      ]
+    }
+  ]
 }

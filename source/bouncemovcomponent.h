@@ -10,15 +10,25 @@ class BounceMovComponent: public Component {
 
 public:
 
-	BounceMovComponent( SDL_Surface* winsur, Actor* actor );
+	BounceMovComponent( Actor* actor );
 
 	void update();
+
+	void setBoundRect( const int& x, const int& y, const int& w, const int& h );
+
+	void setVx( const double& newvx ) { vx = newvx; }
+
+	void setVy( const double& newvy ) { vy = newvy; }
+
+	double getVx() { return vx; }
+
+	double getVy() { return vy; }
 
 
 private:
 	double vx;
 	double vy;
-	SDL_Surface* windowSur;
+	SDL_Rect boundRect;
 	Actor* pActor;
 };
 

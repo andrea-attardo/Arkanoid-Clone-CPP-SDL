@@ -3,7 +3,8 @@
 #define ACTOR_H
 
 #include <vector>
-#include <SDL.h>
+#include <string>
+#include "SDL.h"
 #include "component.h"
 
 
@@ -16,23 +17,26 @@ public:
 
 	void update();
 
-	void render( SDL_Surface* destsur, SDL_Rect& destrect );
+	void render( SDL_Surface* destsur );
 
 	void addComponent( Component* comp );
 
-	int getX();
+	void setName( const std::string name );
 
-	int getY();
+	int getX() { return x; }
 
-	void setX( int xc );
+	int getY() { return y; }
 
-	void setY( int yc );
+	void setX( const int xc ) { x = xc; }
+
+	void setY( const int yc ) { y = yc; }
+
 
 private:
 	std::vector<Component*> components;
+	std::string actname;
 	int x;
 	int y;
-
 };
 
 #endif

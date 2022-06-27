@@ -14,9 +14,9 @@ void Scene::update() {
 	}
 }
 
-void Scene::render( SDL_Surface* destsur, SDL_Rect& destrect ) {
+void Scene::render( SDL_Surface* destsur ) {
 	for ( auto i : actors ) {
-		i->render( destsur, destrect );
+		i->render( destsur );
 	}
 }
 

@@ -9,7 +9,7 @@ public:
 
 	virtual void load() {};
 
-	virtual void render( SDL_Surface* destsur, SDL_Rect& destrect ) {};
+	virtual void render( SDL_Surface* destsur ) {};
 
 	virtual void update() {};
 
