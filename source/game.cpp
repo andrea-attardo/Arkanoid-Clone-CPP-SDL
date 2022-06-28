@@ -5,7 +5,6 @@
 #include "json.hpp"
 #include "game.h"
 #include "scene.h"
-//#include "scenefactory.h"
 #include "actor.h"
 #include "component.h"
 #include "staticspritecomponent.h"
@@ -29,7 +28,7 @@ int main(int argc, char* args[]) {
 
 	level1.loadSceneFromFile( "game/level1.json" );
 
-	//game loop
+	
 	while ( !gQuit ) {
 
 		processEvents();
