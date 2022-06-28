@@ -8,9 +8,9 @@ void Scene::load() {
 	}
 }
 
-void Scene::update() {
+void Scene::update( const double deltatime) {
 	for ( auto i : actors ) {
-		i.update();
+		i.update( deltatime );
 	}
 }
 

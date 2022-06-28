@@ -24,7 +24,7 @@ public:
     //private?
 	void load();
 
-	void update();
+	void update( const double deltatime);
 
 	void render( SDL_Surface* destsur );
 

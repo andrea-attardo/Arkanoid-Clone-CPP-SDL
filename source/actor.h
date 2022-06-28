@@ -15,7 +15,7 @@ public:
 
 	void load();
 
-	void update();
+	void update( const double deltatime );
 
 	void render( SDL_Surface* destsur );
 
@@ -23,20 +23,20 @@ public:
 
 	void setName( const std::string name );
 
-	int getX() { return x; }
+	double getX() { return x; }
 
-	int getY() { return y; }
+	double getY() { return y; }
 
-	void setX( const int xc ) { x = xc; }
+	void setX( const double xc ) { x = xc; }
 
-	void setY( const int yc ) { y = yc; }
+	void setY( const double yc ) { y = yc; }
 
 
 private:
 	std::vector<Component*> components;
 	std::string actname;
-	int x;
-	int y;
+	double x;
+	double y;
 };
 
 #endif

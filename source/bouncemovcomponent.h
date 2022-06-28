@@ -12,7 +12,7 @@ public:
 
 	BounceMovComponent( Actor* actor );
 
-	void update();
+	void update( const double deltatime );
 
 	void setBoundRect( const int& x, const int& y, const int& w, const int& h );
 

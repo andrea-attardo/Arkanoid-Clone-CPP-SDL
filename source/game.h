@@ -4,7 +4,7 @@
 
 void init();
 void processEvents();
-void updateGameLogic();
+void updateGameLogic(const double deltatime);
 void render();
 void close();
 

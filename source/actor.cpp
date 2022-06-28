@@ -12,9 +12,9 @@ void Actor::load() {
 	}
 }
 
-void Actor::update() {
+void Actor::update(const double deltatime) {
 	for ( auto i : components ) {
-		i->update();
+		i->update( deltatime );
 	}
 }
 

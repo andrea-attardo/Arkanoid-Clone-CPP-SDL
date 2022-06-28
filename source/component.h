@@ -11,7 +11,7 @@ public:
 
 	virtual void render( SDL_Surface* destsur ) {};
 
-	virtual void update() {};
+	virtual void update( const double deltatime ) {};
 
 };
 
