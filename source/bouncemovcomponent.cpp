@@ -15,19 +15,37 @@
 	void BounceMovComponent::update( const double deltatime ) {
 
 		pActor->setX( pActor->getX() + ( vx * deltatime ) );
-		//pActor->setY( pActor->getY() + ( vy * deltatime ) );
+		pActor->setY( pActor->getY() + ( vy * deltatime ) );
 
-		if ( pActor->getX() <= boundRect.x || pActor->getX() + 64 >= boundRect.w  ) // numero 64 da cambiare
+
+		//fare refactoring
+		if ( pActor->getX() <= boundRect.x )
 		{
+			pActor->setX( boundRect.x );
 			vx = -vx;
 		}
 
-		/*
-		if ( ( ( pActor->getY() ) < boundRect.y || ( pActor->getY() ) >= boundRect.h ) && deltatime != 0 )
+		if ( pActor->getX() + pActor->getW() >= boundRect.w )
 		{
+
+			pActor->setX( boundRect.w - pActor->getW() );
+			vx = -vx;
+		}
+
+		if ( pActor->getY() <= boundRect.y )
+		{
+			pActor->setY( boundRect.y );
 			vy = -vy;
 		}
-		*/
+
+		if ( pActor->getY() + pActor->getH() >= boundRect.h )
+		{
+
+			pActor->setY( boundRect.h - pActor->getH() );
+			vy = -vy;
+		}
+
+		
 	}
 
 	void BounceMovComponent::setBoundRect( const int& x, const int& y, const int& w, const int& h ) {

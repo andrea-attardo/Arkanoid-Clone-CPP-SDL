@@ -41,6 +41,8 @@ void Scene::loadSceneFromFile( std::string fileName ) {
             actor->setName( actorDescr["name"] );
             actor->setX( actorDescr["x"] );
             actor->setY( actorDescr["y"] );
+            actor->setW( actorDescr["w"] );
+            actor->setH( actorDescr["h"] );
 
             for ( json compDescr : actorDescr["components"] ) {
                 if ( compDescr["type"] == "StaticSpriteComponent" )

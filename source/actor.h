@@ -21,15 +21,27 @@ public:
 
 	void addComponent( Component* comp );
 
-	void setName( const std::string name );
+	void setName( const std::string name ) { 
+		actname = name; 
+	}
 
-	double getX() { return x; }
-
-	double getY() { return y; }
+	std::string getName() { return actname; }
 
 	void setX( const double xc ) { x = xc; }
 
+	double getX() { return x; }
+
 	void setY( const double yc ) { y = yc; }
+
+	double getY() { return y; }
+
+	void setW( const double wc ) { w = wc; }
+
+	double getW() { return w; }
+
+	void setH( const double hc ) { h = hc; }
+
+	double getH() { return h; }
 
 
 private:
@@ -37,6 +49,8 @@ private:
 	std::string actname;
 	double x;
 	double y;
+	double w;
+	double h;
 };
 
 #endif

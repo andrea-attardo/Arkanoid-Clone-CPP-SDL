@@ -27,7 +27,3 @@ void Actor::render( SDL_Surface* destsur ) {
 void Actor::addComponent( Component* comp ) {
 	components.push_back( comp );
 }
-
-void Actor::setName( const std::string name ) {
-	actname = name;
-}

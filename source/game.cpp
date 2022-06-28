@@ -30,14 +30,12 @@ int main(int argc, char* args[]) {
 	level1.loadSceneFromFile( "game/level1.json" );
 
 
-	//auto epoch = std::chrono::steady_clock::now();
 	double oldtime = (double)SDL_GetTicks64() / 1000;
 	double newtime = 0;
 	double deltatime = 0;
 	while ( !gQuit ) {
 		newtime =  (double)SDL_GetTicks64() / 1000;
 		deltatime = newtime - oldtime;
-		std::cout << deltatime << std::endl;
 		oldtime = newtime;
 
 		processEvents();

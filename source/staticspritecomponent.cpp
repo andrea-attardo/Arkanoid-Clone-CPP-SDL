@@ -16,19 +16,34 @@
 		image = SDL_LoadBMP( imgpath.c_str() );
 		if ( image == NULL ) {
 			std::cerr << "Fail to load " + imgpath << std::endl;
-		} 
+		}
+		else
+		{
+			if ( image->w != pActor->getW() )
+			{
+				std::cerr << "Actor " << pActor->getName() 
+						  << " width is different from image loaded." 
+						  << std::endl;
+			}
+
+			if( image->h != pActor->getH() )
+			{
+				std::cerr << "Actor " << pActor->getName()
+						  << " heigth is different from image loaded." 
+						  << std::endl;
+			}
+		}
 	}
 
 
 	void StaticSpriteComponent::render( SDL_Surface* destsur ) {
-		if ( image != NULL ) {
-			destrect.w = image->w;
-			destrect.h = image->h;
-		} else std::cerr << "Fail to load " + imgpath << std::endl;
 
 		destrect.x = pActor->getX();
 		destrect.y = pActor->getY();
+		destrect.w = pActor->getW();
+		destrect.h = pActor->getW();
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
+
 	}
 
 	
