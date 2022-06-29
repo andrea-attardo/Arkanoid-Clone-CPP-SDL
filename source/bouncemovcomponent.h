@@ -5,24 +5,16 @@
 #include "SDL.h"
 #include "actor.h"
 #include "component.h"
+#include "json.hpp"
+using json = nlohmann::json;
 
 class BounceMovComponent: public Component {
 
 public:
 
-	BounceMovComponent( Actor* actor );
+	BounceMovComponent( Actor* actor, json actorDescr, json boundrectDescr );
 
 	void update( const double deltatime );
-
-	void setBoundRect( const int& x, const int& y, const int& w, const int& h );
-
-	void setVx( const double& newvx ) { vx = newvx; }
-
-	void setVy( const double& newvy ) { vy = newvy; }
-
-	double getVx() { return vx; }
-
-	double getVy() { return vy; }
 
 
 private:

@@ -2,12 +2,13 @@
 #include <iostream>
 
 
-	BounceMovComponent::BounceMovComponent( Actor * actor ) {
+	BounceMovComponent::BounceMovComponent( Actor * actor, json actorDescr, json boundrectDescr ) {
 
 		pActor		= actor;
-		boundRect	= { 0, 0, 0, 0 };
-		vx			= 0;
-		vy			= 0;
+		boundRect	= { boundrectDescr["x"], boundrectDescr["y"],
+						boundrectDescr["w"], boundrectDescr["h"]};
+		vx			= actorDescr["vx"];
+		vy			= actorDescr["vy"];
 
 	}
 
@@ -24,23 +25,20 @@
 			pActor->setX( boundRect.x );
 			vx = -vx;
 		}
-
-		if ( pActor->getX() + pActor->getW() >= boundRect.w )
+        else if ( pActor->getX() + pActor->getW() >= boundRect.w )
 		{
-
 			pActor->setX( boundRect.w - pActor->getW() );
 			vx = -vx;
 		}
+
 
 		if ( pActor->getY() <= boundRect.y )
 		{
 			pActor->setY( boundRect.y );
 			vy = -vy;
 		}
-
-		if ( pActor->getY() + pActor->getH() >= boundRect.h )
+		else if ( pActor->getY() + pActor->getH() >= boundRect.h )
 		{
-
 			pActor->setY( boundRect.h - pActor->getH() );
 			vy = -vy;
 		}
@@ -48,8 +46,6 @@
 		
 	}
 
-	void BounceMovComponent::setBoundRect( const int& x, const int& y, const int& w, const int& h ) {
-		boundRect = { x, y, w, h };
-	}
+
 
 	

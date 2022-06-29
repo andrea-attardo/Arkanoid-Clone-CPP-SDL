@@ -52,12 +52,8 @@ void Scene::loadSceneFromFile( std::string fileName ) {
                 }
                 else if ( compDescr["type"] == "BounceMovComponent" )
                 {
-                    BounceMovComponent* bounce = new BounceMovComponent( actor );
                     json boundrectDescr = compDescr["boundrect"];
-                    bounce->setBoundRect( boundrectDescr["x"], boundrectDescr["y"],
-                                          boundrectDescr["w"], boundrectDescr["h"] );
-                    bounce->setVx( compDescr["vx"] );
-                    bounce->setVy( compDescr["vy"] );
+                    BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr, boundrectDescr );
                     actor->addComponent( bounce );
                 }
 
