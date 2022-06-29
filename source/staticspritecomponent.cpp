@@ -22,7 +22,7 @@
 			if ( image->w != pActor->getW() )
 			{
 				std::cerr << "Actor " << pActor->getName() 
-						  << " width is different from image loaded." 
+						  << " width is different from loaded image." 
 						  << std::endl;
 			}
 

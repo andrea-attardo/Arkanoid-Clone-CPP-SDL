@@ -10,6 +10,7 @@
 #include "component.h"
 #include "staticspritecomponent.h"
 #include "bouncemovcomponent.h"
+#include "pathmovcomponent.h"
 
 using json = nlohmann::json;
 

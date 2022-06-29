@@ -6,12 +6,13 @@
 #include <string>
 #include "SDL.h"
 #include "component.h"
-
+#include "json.hpp"
+using json = nlohmann::json;
 
 class Actor {
 public:
 
-	Actor();
+	Actor( json actDescr );
 
 	void load();
 
@@ -21,11 +22,7 @@ public:
 
 	void addComponent( Component* comp );
 
-	void setName( const std::string name ) { 
-		actname = name; 
-	}
-
-	std::string getName() { return actname; }
+	std::string getName() { return name; }
 
 	void setX( const double xc ) { x = xc; }
 
@@ -46,7 +43,7 @@ public:
 
 private:
 	std::vector<Component*> components;
-	std::string actname;
+	std::string name;
 	double x;
 	double y;
 	double w;

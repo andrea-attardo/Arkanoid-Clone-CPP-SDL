@@ -37,13 +37,8 @@ void Scene::loadSceneFromFile( std::string fileName ) {
         sceneFile >> sceneDescriptor;
 
         for ( json actorDescr : sceneDescriptor["actors"] ) {
-            Actor* actor = new Actor();
-            actor->setName( actorDescr["name"] );
-            actor->setX( actorDescr["x"] );
-            actor->setY( actorDescr["y"] );
-            actor->setW( actorDescr["w"] );
-            actor->setH( actorDescr["h"] );
-
+            Actor* actor = new Actor( actorDescr );
+            
             for ( json compDescr : actorDescr["components"] ) {
                 if ( compDescr["type"] == "StaticSpriteComponent" )
                 {
@@ -52,9 +47,13 @@ void Scene::loadSceneFromFile( std::string fileName ) {
                 }
                 else if ( compDescr["type"] == "BounceMovComponent" )
                 {
-                    json boundrectDescr = compDescr["boundrect"];
-                    BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr, boundrectDescr );
+                    BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr, compDescr["boundrect"] );
                     actor->addComponent( bounce );
+                }
+                else if ( compDescr["type"] == "PathMovComponent" )
+                {
+                    PathMovComponenet* path = new PathMovComponenet( actor, compDescr["path"] );
+                    actor->addComponent( path );
                 }
 
             }

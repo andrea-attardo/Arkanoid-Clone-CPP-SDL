@@ -22,16 +22,16 @@
             "w": 1024,
             "h": 768
           },
-          "vx": 1000,
-          "vy": 1000
+          "vx": 400,
+          "vy": 400
         }
       ]
     },
 
     {
       "name": "ghostorange",
-      "x": 500,
-      "y": 5000,
+      "x": 0,
+      "y": 0,
       "w": 64,
       "h": 64,
       "components": [
@@ -41,20 +41,17 @@
           "filename": "assets/ghostorange.bmp"
         },
         {
-          "name": "bouncing",
-          "type": "BounceMovComponent",
-          "boundrect": {
-            "x": 0,
-            "y": 0,
-            "w": 1024,
-            "h": 768
-          },
-          "vx": 300,
-          "vy": 300
+          "name": "path",
+          "type": "PathMovComponent",
+          "path": [
+            { "x": 0,   "y": 0,   "time": 1 },
+            { "x": 100, "y": 0, "time": 2 },
+            { "x": 100, "y": 500, "time": 1.5 },
+            { "x": 0, "y": 500, "time": 1 }
+          ]
         }
       ]
     }
     
-
   ]
 }
