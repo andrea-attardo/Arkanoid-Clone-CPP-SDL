@@ -19,10 +19,8 @@ public:
 private:
     std::vector<std::array<double, 3>> path;
     Actor* pActor;
-    int currentleg;
+    
     int nextleg;
-    double currentlegX;
-    double currentlegY;
     double nextlegX;
     double nextlegY;
     double nextlegTime;

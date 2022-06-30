@@ -14,54 +14,48 @@ PathMovComponenet::PathMovComponenet( Actor* actor, json pathDescr ) {
       
     }
 
-    currentleg   = 0;
-    currentlegX = path[currentleg][0];
-    currentlegY = path[currentleg][1];
-
-    nextleg     = 1;
+    nextleg     = 0;
     nextlegX    = path[nextleg][0];
     nextlegY    = path[nextleg][1];
     nextlegTime = path[nextleg][2];
 
-    vx          = ( nextlegX - currentlegX ) / nextlegTime;
-    vy          = ( nextlegY - currentlegY ) / nextlegTime;
+    vx          = ( nextlegX - (int)pActor->getX() ) / nextlegTime;
+    vy          = ( nextlegY - (int)pActor->getY() ) / nextlegTime;
 
 }
 
 
 void PathMovComponenet::update( const double deltatime ) {
    
-    int distanceXs = nextlegX - pActor->getX();
-    int distanceYs = nextlegY - pActor->getY();
 
-    std::cout << distanceXs << " | " << distanceYs << "\n";
-
-    //da sistemare  
-    //funziona ma: 
-    //1: se sposto la finestra quando sta vicino ai bordi se ne va
-    //2: se cambio la posizione iniziale della x e della y se ne va 
-    if ( distanceXs != 0 || distanceYs != 0 ) // <- problema con questa cosa qua
+    if ( vx > 0 && ( nextlegX - (int)pActor->getX() ) >= 0  )
+    {
+        pActor->setX( pActor->getX() + ( vx * deltatime ) );
+        pActor->setY( pActor->getY() + ( vy * deltatime ) );  
+    }
+    else if ( vx < 0 && ( nextlegX - (int)pActor->getX() ) < 0 )
     {
         pActor->setX( pActor->getX() + ( vx * deltatime ) );
         pActor->setY( pActor->getY() + ( vy * deltatime ) );
-        
-    } 
+    }
+    else if ( vy > 0 && ( nextlegY - (int)pActor->getY() ) >= 0 )
+    {
+        pActor->setX( pActor->getX() + ( vx * deltatime ) );
+        pActor->setY( pActor->getY() + ( vy * deltatime ) );
+    }
+    else if ( vy < 0 && ( nextlegY - (int)pActor->getY() ) < 0 )
+    {
+        pActor->setX( pActor->getX() + ( vx * deltatime ) );
+        pActor->setY( pActor->getY() + ( vy * deltatime ) );
+    }
     else
     {
-        currentleg = nextleg;
-        currentlegX = path[currentleg][0];
-        currentlegY = path[currentleg][1];
-
-        nextleg = ++currentleg % path.size();
+        nextleg = ++nextleg % path.size();
         nextlegX = path[nextleg][0];
         nextlegY = path[nextleg][1];
         nextlegTime = path[nextleg][2];
 
-        vx = ( nextlegX - currentlegX ) / nextlegTime;
-        vy = ( nextlegY - currentlegY ) / nextlegTime;
-
-    }
-    
-    
-    
+        vx = ( nextlegX - (int)pActor->getX() ) / nextlegTime;
+        vy = ( nextlegY - (int)pActor->getY() ) / nextlegTime;
+    }   
 }
