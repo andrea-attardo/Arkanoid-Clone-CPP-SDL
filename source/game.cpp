@@ -11,18 +11,17 @@
 #include "staticspritecomponent.h"
 #include "bouncemovcomponent.h"
 #include "pathmovcomponent.h"
-
 using json = nlohmann::json;
 
 const int		SCREEN_WIDTH		= 1024;
 const int		SCREEN_HEIGTH		= 768;
 
-//global variables
-SDL_Window*		gWindow				= NULL;
-SDL_Surface*    gWindowSurface      = NULL;
+SDL_Window*		gWindow			= NULL;
+SDL_Surface*	gWindowSurface	= NULL;
 SDL_Event		gEvent;
-bool			gQuit				= false;
+bool			gQuit			= false;
 Scene			level1;
+
 
 int main(int argc, char* args[]) {
 

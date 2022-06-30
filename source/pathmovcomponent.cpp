@@ -19,34 +19,26 @@ PathMovComponenet::PathMovComponenet( Actor* actor, json pathDescr ) {
     nextlegY    = path[nextleg][1];
     nextlegTime = path[nextleg][2];
 
-    vx          = ( nextlegX - (int)pActor->getX() ) / nextlegTime;
-    vy          = ( nextlegY - (int)pActor->getY() ) / nextlegTime;
+    nextlegTime = 0;
+    distanceXs  = 0;
+    distanceYs  = 0;
+    vx          = 0;
+    vy          = 0;
 
 }
 
 
 void PathMovComponenet::update( const double deltatime ) {
-   
-
-    if ( vx > 0 && ( nextlegX - (int)pActor->getX() ) >= 0  )
-    {
+    distanceXs = nextlegX - (int)pActor->getX();
+    distanceYs = nextlegY - (int)pActor->getY();
+    
+    if ( ( vx > 0 &&  distanceXs >= 0 ) ||
+         ( vx < 0 &&  distanceXs <  0 ) ||
+         ( vy > 0 &&  distanceYs >= 0 ) ||
+         ( vy < 0 &&  distanceYs <  0 ) )
+    { 
         pActor->setX( pActor->getX() + ( vx * deltatime ) );
         pActor->setY( pActor->getY() + ( vy * deltatime ) );  
-    }
-    else if ( vx < 0 && ( nextlegX - (int)pActor->getX() ) < 0 )
-    {
-        pActor->setX( pActor->getX() + ( vx * deltatime ) );
-        pActor->setY( pActor->getY() + ( vy * deltatime ) );
-    }
-    else if ( vy > 0 && ( nextlegY - (int)pActor->getY() ) >= 0 )
-    {
-        pActor->setX( pActor->getX() + ( vx * deltatime ) );
-        pActor->setY( pActor->getY() + ( vy * deltatime ) );
-    }
-    else if ( vy < 0 && ( nextlegY - (int)pActor->getY() ) < 0 )
-    {
-        pActor->setX( pActor->getX() + ( vx * deltatime ) );
-        pActor->setY( pActor->getY() + ( vy * deltatime ) );
     }
     else
     {
@@ -57,5 +49,6 @@ void PathMovComponenet::update( const double deltatime ) {
 
         vx = ( nextlegX - (int)pActor->getX() ) / nextlegTime;
         vy = ( nextlegY - (int)pActor->getY() ) / nextlegTime;
+
     }   
 }

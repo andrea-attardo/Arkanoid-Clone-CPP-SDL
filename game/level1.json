@@ -44,9 +44,9 @@
           "name": "path",
           "type": "PathMovComponent",
           "path": [
-            { "x": 0,   "y": 0,   "time": 0.5 },
-            { "x": 400, "y": 0, "time": 3 },
-            { "x": 400, "y": 400, "time": 2 },
+            { "x": 0,   "y": 0,   "time": 1 },
+            { "x": 400, "y": 0, "time": 1 },
+            { "x": 400, "y": 400, "time": 1 },
             { "x": 0, "y": 400, "time": 1 }
 
           ]

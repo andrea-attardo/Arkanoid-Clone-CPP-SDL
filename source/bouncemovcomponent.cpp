@@ -31,7 +31,6 @@
 			vx = -vx;
 		}
 
-
 		if ( pActor->getY() <= boundRect.y )
 		{
 			pActor->setY( boundRect.y );

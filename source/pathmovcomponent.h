@@ -20,10 +20,13 @@ private:
     std::vector<std::array<double, 3>> path;
     Actor* pActor;
     
+    
     int nextleg;
     double nextlegX;
     double nextlegY;
     double nextlegTime;
+    double distanceXs;
+    double distanceYs;
     double vx;
     double vy;
 };
