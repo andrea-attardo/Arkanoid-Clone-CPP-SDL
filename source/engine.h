@@ -9,10 +9,11 @@ public:
     //Singleton
     static Engine* instance();
    
+    void init( const int windw, const int windh );
 
-    //void loadScene();
+    void loadScene( std::string filename );
 
-    //void gameloop();
+    void gameloop();
 
 
 private:
@@ -20,7 +21,9 @@ private:
     Engine();
     static bool isInstantiated;
 
-    //void init();
+    SDL_Window* window = NULL;
+    SDL_Surface* windowSurface = NULL;
+    
     //void processEvents();
     //void updateGameLogic( const double deltatime );
     //void render();

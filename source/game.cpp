@@ -13,21 +13,20 @@
 #include "pathmovcomponent.h"
 using json = nlohmann::json;
 
-const int		SCREEN_WIDTH		= 1024;
-const int		SCREEN_HEIGTH		= 768;
+const int	WINDOW_WIDTH = 1024;
+const int	WINDOW_HEIGTH = 768;
 
-SDL_Window*		gWindow			= NULL;
-SDL_Surface*	gWindowSurface	= NULL;
 SDL_Event		gEvent;
 bool			gQuit			= false;
-Scene			level1;
+
 
 
 int main(int argc, char* args[]) {
 
 	Engine* engine = Engine::instance();
-	Engine* engine2 = Engine::instance();
-	
+	engine->init( WINDOW_WIDTH, WINDOW_HEIGTH );
+	engine->loadScene( "game/level1.json" );
+
 
 	/*
 	init();

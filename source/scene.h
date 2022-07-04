@@ -22,7 +22,6 @@ public:
 
 	Scene();
 
-    //private?
 	void load();
 
 	void update( const double deltatime);
@@ -31,7 +30,7 @@ public:
 
 	void addActor( Actor actor );
 
-	void loadSceneFromFile( std::string fileName );
+	void sceneFactory( std::string fileName );
 
 private:
 	std::vector<Actor> actors;

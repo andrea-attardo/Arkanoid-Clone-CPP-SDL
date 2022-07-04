@@ -1,6 +1,8 @@
 #include <iostream>
+#include <string>
 #include "SDL.h"
 #include "engine.h"
+#include "scene.h"
 
 bool Engine::isInstantiated = false;
 
@@ -13,31 +15,56 @@ bool Engine::isInstantiated = false;
 		 static Engine* instance = new Engine();
 		 isInstantiated = true;
 		 return instance;
-	 }
-	 
+	 } 
 	 else
 	 {
-		 std::cerr << "Error: Class Engine previously istantiated" << std::endl;
+		 std::cerr << "Error: class Engine previously istantiated" << std::endl;
 		 return NULL;
 	 }
  }
 
 
-/*
-void Engine::init() {
+void Engine::init(const int windw, const int windh) {
 
 	if ( SDL_Init( SDL_INIT_VIDEO ) != 0 ) printf( "Init failed: %s", SDL_GetError() );
 	else
 	{
-		gWindow = SDL_CreateWindow( "SDLGAME", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-									SCREEN_WIDTH, SCREEN_HEIGTH, SDL_WINDOW_SHOWN );
-		if ( gWindow == NULL )printf( "Creating main Window failed\n" );
+		window = SDL_CreateWindow( "SDLGAME", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+									windw, windh, SDL_WINDOW_SHOWN );
+		if ( window == NULL )printf( "Creating main Window failed\n" );
 
-		gWindowSurface = SDL_GetWindowSurface( gWindow );
+		windowSurface = SDL_GetWindowSurface( window );
 	}
 
 }
 
+void Engine::loadScene(std::string filename ) {
+
+	Scene* scene = new Scene;
+	scene->sceneFactory( filename );
+
+}
+
+
+void Engine::gameloop() {
+
+	double oldtime = (double)SDL_GetTicks64() / 1000;
+	double newtime = 0;
+	double deltatime = 0;
+	while ( !gQuit ) {
+		newtime = (double)SDL_GetTicks64() / 1000;
+		deltatime = newtime - oldtime;
+		oldtime = newtime;
+
+		processEvents();
+
+		updateGameLogic( deltatime );
+
+		render();
+
+	
+
+}
 
 void Engine::processEvents() {
 
@@ -73,4 +100,3 @@ void Engine::close() {
 
 	SDL_Quit();
 }
-*/

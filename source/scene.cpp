@@ -24,7 +24,7 @@ void Scene::addActor( Actor actor ) {
 	actors.push_back( actor );
 }
 
-void Scene::loadSceneFromFile( std::string fileName ) {
+void Scene::sceneFactory( std::string fileName ) {
 
     sceneFile.open( fileName );
     if ( sceneFile.fail() ) {
