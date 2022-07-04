@@ -34,7 +34,6 @@ public:
 
 private:
 	std::vector<Actor> actors;
-    std::ifstream sceneFile;
 };
 
 #endif // !SCENE_H

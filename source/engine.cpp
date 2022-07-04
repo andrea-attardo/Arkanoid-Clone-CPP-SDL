@@ -1,16 +1,25 @@
-#include <iostream>
-#include <string>
-#include "SDL.h"
+
 #include "engine.h"
-#include "scene.h"
+#include "scenefactory.h"
 
 bool Engine::isInstantiated = false;
 
  Engine::Engine() {
-	}
+ 
+	 window			= NULL;
+	 windowSurface	= NULL;
+	 quit			= false;
+	 scene			= NULL;
+	 Event			= {};
 
- Engine* Engine::instance()
- {
+	 oldtime		= (double)SDL_GetTicks64() / 1000;
+	 newtime		= 0;
+	 deltatime		= 0;
+
+ }
+
+ Engine* Engine::instance() {
+
 	 if ( !isInstantiated ) {
 		 static Engine* instance = new Engine();
 		 isInstantiated = true;
@@ -21,6 +30,7 @@ bool Engine::isInstantiated = false;
 		 std::cerr << "Error: class Engine previously istantiated" << std::endl;
 		 return NULL;
 	 }
+
  }
 
 
@@ -40,63 +50,81 @@ void Engine::init(const int windw, const int windh) {
 
 void Engine::loadScene(std::string filename ) {
 
-	Scene* scene = new Scene;
-	scene->sceneFactory( filename );
+	SceneFactory sfactory;
+	scene = sfactory.makeScene( filename );
+	scene->load();
 
 }
 
 
 void Engine::gameloop() {
 
-	double oldtime = (double)SDL_GetTicks64() / 1000;
-	double newtime = 0;
-	double deltatime = 0;
-	while ( !gQuit ) {
-		newtime = (double)SDL_GetTicks64() / 1000;
-		deltatime = newtime - oldtime;
-		oldtime = newtime;
+	while ( !quit ) {
 
 		processEvents();
-
-		updateGameLogic( deltatime );
-
+		update();
 		render();
 
-	
+	}
 
 }
+
 
 void Engine::processEvents() {
 
-	while ( SDL_PollEvent( &gEvent ) ) {
-		if ( gEvent.type == SDL_QUIT )
+	while ( SDL_PollEvent( &Event ) ) {
+		if ( Event.type == SDL_QUIT )
 		{
-			gQuit = true;
+			quit = true;
 		}
 	}
+
 }
 
 
-void Engine::updateGameLogic( const double deltatime ) {
+void Engine::update() {
 
-	level1.update( deltatime );
+	newtime = (double)SDL_GetTicks64() / 1000;
+
+	deltatime = newtime - oldtime;
+	scene->update( deltatime );
+
+	oldtime = newtime;
+
 }
 
 
 void Engine::render() {
-	if ( SDL_FillRect( gWindowSurface, NULL, SDL_MapRGB( gWindowSurface->format, 0, 0, 0 ) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
+	if ( SDL_FillRect( windowSurface, NULL, SDL_MapRGB( windowSurface->format, 0, 0, 0 ) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
 
-	level1.render( gWindowSurface );
+	scene->render( windowSurface );
 
-	SDL_UpdateWindowSurface( gWindow );
+	SDL_UpdateWindowSurface( window );
 
 }
 
 
 void Engine::close() {
+	
+	/*
+	for ( Actor& act : scene ) {
 
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
+		for ( Component* cmp : act ) {
+
+			delete( cmp );
+			cmp = NULL;
+
+		}
+
+		delete( act );
+		act = NULL;
+		
+	}
+	*/
+
+	delete( scene );
+	scene = NULL;
+	
 
 	SDL_Quit();
 }

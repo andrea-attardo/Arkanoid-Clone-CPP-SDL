@@ -1,8 +1,9 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <vector>
-
+#include <string>
+#include "SDL.h"
+#include "scene.h"
 
 class Engine {
 public:
@@ -15,21 +16,28 @@ public:
 
     void gameloop();
 
+    void processEvents();
+    void update();
+    void render();
+    void close();
+
+    
 
 private:
 
     Engine();
-    static bool isInstantiated;
+    static bool     isInstantiated;
 
-    SDL_Window* window = NULL;
-    SDL_Surface* windowSurface = NULL;
-    
-    //void processEvents();
-    //void updateGameLogic( const double deltatime );
-    //void render();
-    //void close();
-   
+    SDL_Window*     window;
+    SDL_Surface*    windowSurface;
+    SDL_Event		Event;
+    bool			quit;
+       
+    Scene*          scene;
 
+    double oldtime;
+    double newtime;
+    double deltatime;
 };
 
 
