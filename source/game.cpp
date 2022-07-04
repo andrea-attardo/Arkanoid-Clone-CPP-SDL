@@ -4,7 +4,7 @@
 #include <chrono>
 #include "SDL.h"
 #include "json.hpp"
-#include "game.h"
+#include "engine.h"
 #include "scene.h"
 #include "actor.h"
 #include "component.h"
@@ -25,6 +25,11 @@ Scene			level1;
 
 int main(int argc, char* args[]) {
 
+	Engine* engine = Engine::instance();
+	Engine* engine2 = Engine::instance();
+	
+
+	/*
 	init();
 
 	level1.loadSceneFromFile( "game/level1.json" );
@@ -47,62 +52,14 @@ int main(int argc, char* args[]) {
 	}
 
 	close();
-
+	*/
 	return 0;
 }
 
 
 
 
-void init() {
 
-	if ( SDL_Init( SDL_INIT_VIDEO ) != 0 ) printf( "Init failed: %s", SDL_GetError() );
-	else
-	{
-		gWindow = SDL_CreateWindow( "HELLOGAME SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-								   SCREEN_WIDTH, SCREEN_HEIGTH, SDL_WINDOW_SHOWN );
-		if ( gWindow == NULL )printf( "Creating main Window failed\n" );
-
-		gWindowSurface = SDL_GetWindowSurface( gWindow );
-	}
-
-}
-
-
-void processEvents() {
-
-	while ( SDL_PollEvent( &gEvent ) ) {
-		if ( gEvent.type == SDL_QUIT )
-		{
-			gQuit = true;
-		}
-	}
-}
-
-
-void updateGameLogic( const double deltatime ) {
-
-	level1.update( deltatime );
-}
-
-
-void render() {
-	if ( SDL_FillRect(gWindowSurface, NULL, SDL_MapRGB( gWindowSurface->format, 0, 0, 0) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
-
-	level1.render( gWindowSurface );
-
-	SDL_UpdateWindowSurface( gWindow );
-
-}
-
-
-void close() {
-
-	SDL_DestroyWindow( gWindow );
-	gWindow = NULL;
-
-	SDL_Quit();
-}
 
 
 

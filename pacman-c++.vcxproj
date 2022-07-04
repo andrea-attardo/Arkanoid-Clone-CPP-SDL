@@ -107,7 +107,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\personale\programming\packages\SDL2_image-2.0.5\include;C:\personale\programming\projects\pacman\pacman-c++\lib;C:\personale\programming\packages\SDL2-2.0.22\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\personale\programming\projects\pacman\pacman-c++\lib;C:\personale\programming\packages\SDL2_image-2.0.5\include;C:\personale\programming\packages\SDL2-2.0.22\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -139,8 +139,9 @@
   <ItemGroup>
     <ClCompile Include="source\actor.cpp" />
     <ClCompile Include="source\bouncemovcomponent.cpp" />
-    <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\component.h" />
+    <ClCompile Include="source\engine.cpp" />
+    <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\pathmovcomponent.cpp" />
     <ClCompile Include="source\scene.cpp" />
     <ClCompile Include="source\staticspritecomponent.cpp" />
@@ -148,8 +149,8 @@
   <ItemGroup>
     <ClInclude Include="source\actor.h" />
     <ClInclude Include="source\bouncemovcomponent.h" />
-    <ClInclude Include="source\game.h" />
     <ClInclude Include="lib\json.hpp" />
+    <ClInclude Include="source\engine.h" />
     <ClInclude Include="source\pathmovcomponent.h" />
     <ClInclude Include="source\scene.h" />
     <ClInclude Include="source\staticspritecomponent.h" />
