@@ -3,8 +3,8 @@
 #define BOUNCEMOVCOMPONENT_H
 
 #include "SDL.h"
-#include "actor.h"
-#include "component.h"
+#include "../actor.h"
+#include "../component.h"
 #include "json.hpp"
 using json = nlohmann::json;
 

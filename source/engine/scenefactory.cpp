@@ -4,9 +4,9 @@
 #include "scenefactory.h"
 #include "actor.h"
 #include "component.h"
-#include "staticspritecomponent.h"
-#include "bouncemovcomponent.h"
-#include "pathmovcomponent.h"
+#include "../engine/components/staticspritecomponent.h"
+#include "../engine/components/bouncemovcomponent.h"
+#include "../engine/components/pathmovcomponent.h"
 #include "json.hpp"
 
 

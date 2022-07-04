@@ -1,20 +1,9 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
 #include <vector>
 #include "SDL.h"
 #include "actor.h"
-#include "scene.h"
-#include "actor.h"
-#include "component.h"
-#include "staticspritecomponent.h"
-#include "bouncemovcomponent.h"
-#include "pathmovcomponent.h"
-#include "json.hpp"
-using json = nlohmann::json;
 
 class Scene {
 
@@ -30,7 +19,6 @@ public:
 
 	void addActor( Actor actor );
 
-	void sceneFactory( std::string fileName );
 
 private:
 	std::vector<Actor> actors;

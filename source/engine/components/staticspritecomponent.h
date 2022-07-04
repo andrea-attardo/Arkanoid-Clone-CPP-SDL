@@ -4,8 +4,8 @@
 
 #include <string>
 #include "SDL.h"
-#include "actor.h"
-#include "component.h"
+#include "../actor.h"
+#include "../component.h"
 
 class StaticSpriteComponent: public Component { 
 

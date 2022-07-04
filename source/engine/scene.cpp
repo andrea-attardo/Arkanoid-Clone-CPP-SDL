@@ -3,20 +3,20 @@
 Scene::Scene() {}
 
 void Scene::load() {
-	for ( auto i : actors ) {
-		i.load();
+	for ( Actor act : actors ) {
+		act.load();
 	}
 }
 
 void Scene::update( const double deltatime) {
-	for ( auto i : actors ) {
-		i.update( deltatime );
+	for ( Actor act : actors ) {
+		act.update( deltatime );
 	}
 }
 
 void Scene::render( SDL_Surface* destsur ) {
-	for ( auto i : actors ) {
-		i.render( destsur );
+	for ( Actor act : actors ) {
+		act.render( destsur );
 	}
 }
 

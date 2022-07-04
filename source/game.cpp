@@ -1,17 +1,6 @@
-#include <iostream>
-#include <fstream>
-#include <cstdio>
-#include <chrono>
-#include "SDL.h"
-#include "json.hpp"
-#include "engine.h"
-#include "scene.h"
-#include "actor.h"
-#include "component.h"
-#include "staticspritecomponent.h"
-#include "bouncemovcomponent.h"
-#include "pathmovcomponent.h"
-using json = nlohmann::json;
+
+#include "./engine/engine.h"
+
 
 const int	WINDOW_WIDTH = 1024;
 const int	WINDOW_HEIGTH = 768;

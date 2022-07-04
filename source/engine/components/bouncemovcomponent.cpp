@@ -1,5 +1,5 @@
+
 #include "bouncemovcomponent.h"
-#include <iostream>
 
 
 	BounceMovComponent::BounceMovComponent( Actor * actor, json actorDescr, json boundrectDescr ) {
