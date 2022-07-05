@@ -9,12 +9,15 @@
 		image			= NULL;
 		imgpath			= filename;
 		destrect		= { 0, 0, 0, 0 };
+
 	}
 
 
 	void StaticSpriteComponent::load() {
+
 		image = SDL_LoadBMP( imgpath.c_str() );
-		if ( image == NULL ) {
+		if ( image == NULL ) 
+		{
 			std::cerr << "Fail to load " + imgpath << std::endl;
 		}
 		else
@@ -26,13 +29,14 @@
 						  << std::endl;
 			}
 
-			if( image->h != pActor->getH() )
+			if ( image->h != pActor->getH() )
 			{
 				std::cerr << "Actor " << pActor->getName()
-						  << " heigth is different from image loaded." 
+						  << " heigth is different from loaded image." 
 						  << std::endl;
 			}
 		}
+
 	}
 
 

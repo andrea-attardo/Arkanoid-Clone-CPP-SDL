@@ -19,7 +19,7 @@
 		pActor->setY( pActor->getY() + ( vy * deltatime ) );
 
 
-		//fare refactoring
+		//da sistemare
 		if ( pActor->getX() <= boundRect.x )
 		{
 			pActor->setX( boundRect.x );
@@ -30,6 +30,7 @@
 			pActor->setX( boundRect.w - pActor->getW() );
 			vx = -vx;
 		}
+
 
 		if ( pActor->getY() <= boundRect.y )
 		{

@@ -8,7 +8,7 @@
 #include "../engine/components/bouncemovcomponent.h"
 #include "../engine/components/pathmovcomponent.h"
 #include "json.hpp"
-
+using json = nlohmann::json;
 
 Scene* SceneFactory::makeScene( std::string fileName ) {
 

@@ -4,9 +4,11 @@
 #include <string>
 #include "SDL.h"
 #include "scene.h"
+#include "inputsystem.h"
 
 class Engine {
 public:
+
     //Singleton
     static Engine* instance();
    
@@ -19,10 +21,10 @@ public:
     void processEvents();
     void update();
     void render();
+
     void close();
 
-    
-
+  
 private:
 
     Engine();
@@ -30,14 +32,19 @@ private:
 
     SDL_Window*     window;
     SDL_Surface*    windowSurface;
+
+    Scene*          scene;
+    
+    InputSystem     inputsys;
     SDL_Event		Event;
     bool			quit;
-       
-    Scene*          scene;
 
-    double oldtime;
-    double newtime;
-    double deltatime;
+    double          oldtime;
+    double          newtime;
+    double          deltatime;
+
+    
+
 };
 
 

@@ -2,8 +2,8 @@
 #include "./engine/engine.h"
 
 
-const int	WINDOW_WIDTH = 1024;
-const int	WINDOW_HEIGTH = 768;
+const int	WINDOW_WIDTH	= 1024;
+const int	WINDOW_HEIGTH	= 768;
 
 
 int main(int argc, char* args[]) {

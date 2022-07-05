@@ -8,9 +8,10 @@ bool Engine::isInstantiated = false;
  
 	 window			= NULL;
 	 windowSurface	= NULL;
-	 quit			= false;
 	 scene			= NULL;
+
 	 Event			= {};
+	 quit			= false;
 
 	 oldtime		= (double)SDL_GetTicks64() / 1000;
 	 newtime		= 0;
@@ -27,7 +28,7 @@ bool Engine::isInstantiated = false;
 	 } 
 	 else
 	 {
-		 std::cerr << "Error: class Engine previously istantiated" << std::endl;
+		 std::cerr << "Error: class Engine previously istantiated." << std::endl;
 		 return NULL;
 	 }
 
@@ -77,7 +78,10 @@ void Engine::processEvents() {
 		{
 			quit = true;
 		}
+		
 	}
+	
+	inputsys.process();
 
 }
 

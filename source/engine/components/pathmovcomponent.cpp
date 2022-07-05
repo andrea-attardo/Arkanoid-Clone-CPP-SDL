@@ -1,5 +1,4 @@
 #include "pathmovcomponent.h"
-#include <iostream>
 
 
 PathMovComponenet::PathMovComponenet( Actor* actor, json pathDescr ) {
