@@ -29,6 +29,7 @@ public:
 private:
 
     Engine();
+    static Engine*  pEngine;
     static bool     isInstantiated;
 
     SDL_Window*     window;

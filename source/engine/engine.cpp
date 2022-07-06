@@ -3,6 +3,7 @@
 #include "scenefactory.h"
 
 bool Engine::isInstantiated = false;
+Engine* Engine::pEngine		= NULL;
 
  Engine::Engine() {
  
@@ -21,7 +22,6 @@ bool Engine::isInstantiated = false;
 
  Engine* Engine::instance() {
 
-	 Engine* pEngine = NULL;
 
 	 if ( !isInstantiated ) {
 		 static Engine* instance = new Engine();
