@@ -1,18 +1,38 @@
-#include <cstdio>
-#include "SDL.h"
+#include <iostream>
 #include "inputsystem.h"
 
-InputSystem::InputSystem() {
 
-   //map
+InputSystem::InputSystem() {}
+
+
+
+void InputSystem::bindtokey( SDL_Scancode keypressed, std::function<void( SDL_Scancode )> func ) {
+
+    if ( func )
+    {
+        observers.insert( { keypressed, func } );
+    }
+    else
+    {
+        std::cout << "function passed is empty" << std::endl;
+    }
+
 }
 
 
 void InputSystem::process() {
 
     const Uint8* state = SDL_GetKeyboardState( NULL );
-    if ( state[SDL_SCANCODE_RIGHT] ) {
-        printf( "right is pressed.\n" );
+
+    for ( auto& [keypressed, function] : observers ) {
+
+        if ( state[keypressed] )
+        {
+            function( keypressed );
+        }
+
     }
 
 }
+
+

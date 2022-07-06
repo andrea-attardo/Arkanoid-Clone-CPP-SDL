@@ -7,6 +7,7 @@
 #include "../engine/components/staticspritecomponent.h"
 #include "../engine/components/bouncemovcomponent.h"
 #include "../engine/components/pathmovcomponent.h"
+#include "../engine/components/floatmovcomponent.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -42,6 +43,11 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                 {
                     PathMovComponenet* path = new PathMovComponenet( actor, compDescr["path"] );
                     actor->addComponent( path );
+                }
+                if ( compDescr["type"] == "FloatMovComponent" )
+                {
+                    FloatMovComponent* floating = new FloatMovComponent( actor );
+                    actor->addComponent( floating );
                 }
 
             }

@@ -24,6 +24,7 @@ public:
 
     void close();
 
+    InputSystem* getInputsys() { return &inputsys; }
   
 private:
 

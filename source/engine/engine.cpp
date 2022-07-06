@@ -21,16 +21,15 @@ bool Engine::isInstantiated = false;
 
  Engine* Engine::instance() {
 
+	 Engine* pEngine = NULL;
+
 	 if ( !isInstantiated ) {
 		 static Engine* instance = new Engine();
+		 pEngine = instance;
 		 isInstantiated = true;
-		 return instance;
-	 } 
-	 else
-	 {
-		 std::cerr << "Error: class Engine previously istantiated." << std::endl;
-		 return NULL;
 	 }
+
+	 return pEngine;
 
  }
 
