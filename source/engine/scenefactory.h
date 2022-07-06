@@ -1,7 +1,7 @@
 #ifndef SCENEFACTORY_H
 #define SCENEFACTORY_H
 
-#include <string>
+
 #include "scene.h"
 
 class SceneFactory {

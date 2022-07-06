@@ -2,25 +2,26 @@
 #define INPUTSYSTEM_H
 
 #include <iostream>
-#include "SDL.h"
 #include <map>
+#include "SDL.h"
+#include "component.h"
 
 class InputSystem {
 public:
 
     InputSystem();
 
-    void bindtokey( SDL_Scancode keypressed  );
+    void bindtokey( SDL_Scancode keypressed, void (Component::*pFunc)( SDL_Scancode ), Component* cmpinstance );
 
     void process();
 
  
 
 private:
-    //void (*)(SDL_Scancode)
-    //std::function<void( SDL_Scancode )>
-    std::map< SDL_Scancode, int > observers;
-
+   
+    std::map< SDL_Scancode, void ( Component::* )( SDL_Scancode ) > observers;
+    
+    Component* cmpInstance;
     
 };
 

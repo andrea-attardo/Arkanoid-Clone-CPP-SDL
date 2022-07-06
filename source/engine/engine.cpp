@@ -11,6 +11,7 @@ Engine* Engine::pEngine		= NULL;
 	 windowSurface	= NULL;
 	 scene			= NULL;
 
+	 inputsys		= InputSystem();
 	 Event			= {};
 	 quit			= false;
 

@@ -1,14 +1,16 @@
+#include <iostream>
 #include "floatmovcomponent.h"
 
 FloatMovComponent::FloatMovComponent( Actor* act ) {
 
+    pFunc = &Component::keyAction;
+    
    
     engine = Engine::instance();
 
-    //engine->getInputsys()->bindtokey( SDL_SCANCODE_UP, []( SDL_Scancode ) -> void {
-    //    std::cout << "func direction called, yeah" << "\n"; } ); 
+    engine->getInputsys()->bindtokey( SDL_SCANCODE_DOWN, pFunc, this );
 
-    //engine->getInputsys()->bindtokey( SDL_SCANCODE_DOWN, func);
+    //engine->getInputsys()->bindtokey( SDL_SCANCODE_UP, func);
     //engine->getInputsys()->bindtokey( SDL_SCANCODE_LEFT, func );
     //engine->getInputsys()->bindtokey( SDL_SCANCODE_RIGHT, func );
 
@@ -29,9 +31,11 @@ void FloatMovComponent::update(const double deltatime) {
 }
 
 
-void FloatMovComponent::direction( SDL_Scancode keypressed ) {
+void FloatMovComponent::keyAction( SDL_Scancode keypressed ) {
 
-    std::cout << "func direction called, yeah" << "\n";
-
+    if ( keypressed == SDL_SCANCODE_DOWN )
+    {
+        vy = +100;
+    }
 
 }

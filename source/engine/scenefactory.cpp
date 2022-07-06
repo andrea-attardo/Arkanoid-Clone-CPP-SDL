@@ -4,10 +4,10 @@
 #include "scenefactory.h"
 #include "actor.h"
 #include "component.h"
-#include "../engine/components/staticspritecomponent.h"
-#include "../engine/components/bouncemovcomponent.h"
-#include "../engine/components/pathmovcomponent.h"
-#include "../engine/components/floatmovcomponent.h"
+#include "components/staticspritecomponent.h"
+#include "components/bouncemovcomponent.h"
+#include "components/pathmovcomponent.h"
+#include "components/floatmovcomponent.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
