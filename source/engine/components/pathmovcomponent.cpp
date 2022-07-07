@@ -27,6 +27,7 @@ PathMovComponenet::PathMovComponenet( Actor* actor, json pathDescr ) {
 }
 
 
+//fare refactoring
 void PathMovComponenet::update( const double deltatime ) {
     distanceXs = nextlegX - (int)pActor->getX();
     distanceYs = nextlegY - (int)pActor->getY();

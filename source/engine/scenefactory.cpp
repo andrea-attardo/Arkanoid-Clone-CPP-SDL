@@ -46,7 +46,7 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                 }
                 if ( compDescr["type"] == "FloatMovComponent" )
                 {
-                    FloatMovComponent* floating = new FloatMovComponent( actor );
+                    FloatMovComponent* floating = new FloatMovComponent( actor, compDescr["v"]);
                     actor->addComponent( floating );
                 }
 

@@ -2,7 +2,10 @@
 #include "inputsystem.h"
 
 
-InputSystem::InputSystem() {}
+InputSystem::InputSystem() {
+
+    cmpInstance = NULL;
+}
 
 
 
@@ -10,16 +13,15 @@ void InputSystem::bindtokey( SDL_Scancode keypressed, void ( Component::* pFunc 
 
     cmpInstance = cmpinstance;
     
-    if ( pFunc )
+    if ( pFunc != NULL )
     {
         observers.insert( { keypressed, pFunc } );
     }
     else
     {
-        std::cout << "function passed is empty" << std::endl;
+        std::cerr << "function passed is empty" << std::endl;
     }
     
-
 }
 
 
@@ -27,12 +29,14 @@ void InputSystem::process() {
 
     const Uint8* state = SDL_GetKeyboardState( NULL );
 
-    
-    for ( auto& i : observers ) {
+    for ( auto& obs : observers ) {
 
-        if ( state[i.first] )
+        auto& keypressed    = obs.first;
+        auto& keyfunction   = obs.second;
+
+        if ( state[keypressed] )
         {
-            ( *cmpInstance.*i.second )( i.first );
+            ( *cmpInstance.*keyfunction )( keypressed );
         }
 
     }

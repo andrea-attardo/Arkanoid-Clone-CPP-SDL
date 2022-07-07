@@ -84,7 +84,8 @@
         },
         {
           "name": "floating",
-          "type": "FloatMovComponent"
+          "type": "FloatMovComponent",
+          "v": 500
         }
       ]
     }

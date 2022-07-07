@@ -4,11 +4,13 @@
 #include "SDL.h"
 #include "../engine.h"
 #include "../actor.h"
+#include "json.hpp"
+using json = nlohmann::json;
 
 class FloatMovComponent: public Component {
 public:
 
-    FloatMovComponent(Actor* act);
+    FloatMovComponent(Actor* act, double velocity);
 
     void update( const double deltatime );
 
@@ -19,6 +21,7 @@ private:
     Actor* actor;
     double vx;
     double vy;
+    double v;
 
     void( Component::* pFunc )( SDL_Scancode );
 };
