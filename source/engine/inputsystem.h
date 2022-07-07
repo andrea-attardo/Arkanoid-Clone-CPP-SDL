@@ -11,11 +11,11 @@ public:
 
     InputSystem();
 
-    void bindtokey( SDL_Scancode keypressed, void (Component::*pFunc)( SDL_Scancode ), Component* cmpinstance );
-
     void process();
 
- 
+    void bindtokey( SDL_Scancode keypressed, void (Component::*pFunc)( SDL_Scancode ), Component* cmpinstance );
+
+   
 
 private:
    

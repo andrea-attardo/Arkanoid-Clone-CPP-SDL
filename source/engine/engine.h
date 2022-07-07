@@ -5,6 +5,7 @@
 #include "SDL.h"
 #include "scene.h"
 #include "inputsystem.h"
+#include "collisionsysytem.h"
 
 class Engine {
 public:
@@ -24,7 +25,8 @@ public:
 
     void close();
 
-    InputSystem* getInputsys() { return &inputsys; }
+    InputSystem*     getInputsys() { return &inputsys; }
+    //CollisionSystem* getCollisionsys() { return collisionsys; }
   
 private:
 
@@ -38,6 +40,8 @@ private:
     Scene*          scene;
     
     InputSystem     inputsys;
+    //CollisionSystem* collisionsys;
+
     SDL_Event		Event;
     bool			quit;
 
@@ -45,12 +49,7 @@ private:
     double          newtime;
     double          deltatime;
 
-    
-
 };
-
-
-
 
 
 #endif 

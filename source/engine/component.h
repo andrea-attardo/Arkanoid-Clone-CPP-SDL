@@ -9,9 +9,9 @@ public:
 
 	virtual void load() {};
 
-	virtual void render( SDL_Surface* destsur ) {};
-
 	virtual void update( const double deltatime ) {};
+
+	virtual void render( SDL_Surface* destsur ) {};
 
 	virtual void keyAction( SDL_Scancode keypressed ) {};
 

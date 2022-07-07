@@ -55,6 +55,13 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                     LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
                     actor->addComponent( lrpaddling );
                 }
+                /*
+                if ( compDescr["type"] == "ColliderComponent" )
+                {
+                    ColliderComponent* collider = new ColliderComponent( actor, compDescr["aabb"] );
+                    actor->addComponent( collider );
+                }
+                */
 
             }
 

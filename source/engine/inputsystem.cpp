@@ -8,6 +8,25 @@ InputSystem::InputSystem() {
 }
 
 
+void InputSystem::process() {
+
+    const Uint8* state = SDL_GetKeyboardState( NULL );
+
+    for ( auto& obs : observers ) {
+
+        auto& keypressed = obs.first;
+        auto& keyfunction = obs.second;
+
+        if ( state[keypressed] )
+        {
+            ( *cmpInstance.*keyfunction )( keypressed );
+        }
+
+    }
+
+
+}
+
 
 void InputSystem::bindtokey( SDL_Scancode keypressed, void ( Component::* pFunc )( SDL_Scancode ), Component* cmpinstance ) {
 
@@ -25,23 +44,6 @@ void InputSystem::bindtokey( SDL_Scancode keypressed, void ( Component::* pFunc 
 }
 
 
-void InputSystem::process() {
 
-    const Uint8* state = SDL_GetKeyboardState( NULL );
-
-    for ( auto& obs : observers ) {
-
-        auto& keypressed    = obs.first;
-        auto& keyfunction   = obs.second;
-
-        if ( state[keypressed] )
-        {
-            ( *cmpInstance.*keyfunction )( keypressed );
-        }
-
-    }
-    
-
-}
 
 

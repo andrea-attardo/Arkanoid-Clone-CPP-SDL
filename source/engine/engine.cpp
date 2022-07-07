@@ -12,6 +12,8 @@ Engine* Engine::pEngine		= NULL;
 	 scene			= NULL;
 
 	 inputsys		= InputSystem();
+	 //collisionsys   = &CollisionSystem();
+
 	 Event			= {};
 	 quit			= false;
 
@@ -82,6 +84,7 @@ void Engine::processEvents() {
 	}
 	
 	inputsys.process();
+	//collisionsys->process();
 
 }
 

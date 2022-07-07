@@ -17,10 +17,11 @@ public:
 
 
 private:
-	double vx;
-	double vy;
-	SDL_Rect boundRect;
-	Actor* pActor;
+	double		vx;
+	double		vy;
+	SDL_Rect	boundRect;
+	Actor*		pActor;
+
 };
 
 
