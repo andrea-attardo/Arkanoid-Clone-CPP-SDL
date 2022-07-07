@@ -27,11 +27,12 @@ PathMovComponenet::PathMovComponenet( Actor* actor, json pathDescr ) {
 }
 
 
-//fare refactoring
+
 void PathMovComponenet::update( const double deltatime ) {
     distanceXs = nextlegX - (int)pActor->getX();
     distanceYs = nextlegY - (int)pActor->getY();
     
+    //da sistemare
     if ( ( vx > 0 &&  distanceXs >= 0 ) ||
          ( vx < 0 &&  distanceXs <  0 ) ||
          ( vy > 0 &&  distanceYs >= 0 ) ||

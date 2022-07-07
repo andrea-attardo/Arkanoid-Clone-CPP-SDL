@@ -45,6 +45,9 @@
     <ClCompile Include="source\engine\components\staticspritecomponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\engine\components\lrpaddlemovcomponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\scenefactory.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\engine\components\staticspritecomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\engine\components\lrpaddlemovcomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -72,8 +72,8 @@
 
     {
       "name": "shipgreen",
-      "x": 0,
-      "y": 0,
+      "x": 396,
+      "y": 720,
       "w": 128,
       "h": 32,
       "components": [
@@ -83,8 +83,14 @@
           "filename": "assets/shipgreen.bmp"
         },
         {
-          "name": "floating",
-          "type": "FloatMovComponent",
+          "name": "lrpaddling",
+          "type": "LrPaddleMovComponent",
+          "boundrect": {
+            "x": 0,
+            "y": 0,
+            "w": 1024,
+            "h": 768
+          },
           "v": 500
         }
       ]

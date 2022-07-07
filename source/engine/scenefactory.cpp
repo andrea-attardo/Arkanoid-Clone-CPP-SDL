@@ -8,6 +8,7 @@
 #include "components/bouncemovcomponent.h"
 #include "components/pathmovcomponent.h"
 #include "components/floatmovcomponent.h"
+#include "components/lrpaddlemovcomponent.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -34,20 +35,25 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                     StaticSpriteComponent* sprite = new StaticSpriteComponent( compDescr["filename"], actor );
                     actor->addComponent( sprite );
                 }
-                else if ( compDescr["type"] == "BounceMovComponent" )
+                if ( compDescr["type"] == "BounceMovComponent" )
                 {
                     BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr, compDescr["boundrect"] );
                     actor->addComponent( bounce );
                 }
-                else if ( compDescr["type"] == "PathMovComponent" )
+                if ( compDescr["type"] == "PathMovComponent" )
                 {
                     PathMovComponenet* path = new PathMovComponenet( actor, compDescr["path"] );
                     actor->addComponent( path );
                 }
                 if ( compDescr["type"] == "FloatMovComponent" )
                 {
-                    FloatMovComponent* floating = new FloatMovComponent( actor, compDescr["v"]);
+                    FloatMovComponent* floating = new FloatMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
                     actor->addComponent( floating );
+                }
+                if ( compDescr["type"] == "LrPaddleMovComponent" )
+                {
+                    LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
+                    actor->addComponent( lrpaddling );
                 }
 
             }

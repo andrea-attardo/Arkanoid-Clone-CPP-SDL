@@ -18,7 +18,6 @@
 		pActor->setX( pActor->getX() + ( vx * deltatime ) );
 		pActor->setY( pActor->getY() + ( vy * deltatime ) );
 
-
 		//da sistemare
 		if ( pActor->getX() <= boundRect.x )
 		{

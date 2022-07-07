@@ -10,19 +10,20 @@ using json = nlohmann::json;
 class FloatMovComponent: public Component {
 public:
 
-    FloatMovComponent(Actor* act, double velocity);
+    FloatMovComponent(Actor* act, json boundrDescr, double velocity );
 
     void update( const double deltatime );
 
     void keyAction( SDL_Scancode keypressed );
 
 private:
-    Engine* engine;
     Actor* actor;
+    SDL_Rect boundRect;
     double vx;
     double vy;
     double v;
 
+    Engine* engine;
     void( Component::* pFunc )( SDL_Scancode );
 };
 

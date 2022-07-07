@@ -90,7 +90,7 @@ void Engine::update() {
 
 	newtime = (double)SDL_GetTicks64() / 1000;
 
-	deltatime = newtime - oldtime;
+	deltatime = std::min(newtime - oldtime, ( 1.0 / 60.0 ) );
 	scene->update( deltatime );
 
 	oldtime = newtime;
