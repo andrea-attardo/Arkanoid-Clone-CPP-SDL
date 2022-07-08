@@ -6,8 +6,7 @@ LrPaddleMovComponent::LrPaddleMovComponent( Actor* act, json boundrDescr, double
     actor = act;
     boundRect = { boundrDescr["x"], boundrDescr["y"],
                   boundrDescr["w"], boundrDescr["h"] };
-    vx = 0.0;
-    vy = 0.0;
+    
     v = velocity;
 
     pFunc = &Component::keyAction;
@@ -23,12 +22,29 @@ LrPaddleMovComponent::LrPaddleMovComponent( Actor* act, json boundrDescr, double
 void LrPaddleMovComponent::update( const double deltatime ) {
 
 
-    actor->setX( actor->getX() + ( vx * deltatime ) );
-    actor->setY( actor->getY() + ( vy * deltatime ) );
+    actor->setX( actor->getX() + ( actor->getVx() * deltatime ));
+    actor->setY( actor->getY() + ( actor->getVy() * deltatime ) );
 
     //inertia
-    ( vx > 0 ) ? ( vx -= v * deltatime ) : ( vx += v * deltatime );
-    ( vy > 0 ) ? ( vy -= v * deltatime ) : ( vy += v * deltatime );
+    if ( actor->getVx() > 0 )
+    {
+        actor->setVx( actor->getVx() - ( v * deltatime ) );
+    }
+    else
+    {
+       actor->setVx( actor->getVx() + ( v * deltatime ) );
+    }
+
+    if ( actor->getVy() > 0 )
+    {
+        actor->setVy( actor->getVy() - ( v * deltatime ) );
+    }
+    else
+    {
+        actor->setVy( actor->getVy() + ( v * deltatime ) );
+    }
+
+
 
     //stop at bound rect
     if ( actor->getX() < boundRect.x ) 
@@ -48,12 +64,12 @@ void LrPaddleMovComponent::keyAction( SDL_Scancode keypressed ) {
 
     if ( keypressed == SDL_SCANCODE_LEFT )
     {
-        vx = -v;
+        actor->setVx( -v );
     }
 
     if ( keypressed == SDL_SCANCODE_RIGHT )
     {
-        vx = +v;
+        actor->setVx( +v );
     }
 
 

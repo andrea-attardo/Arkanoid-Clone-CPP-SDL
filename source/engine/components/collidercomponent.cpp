@@ -4,7 +4,7 @@
 #include "../engine.h"
 
 
-ColliderComponent::ColliderComponent( Actor* act, json AABB ) {
+ColliderComponent::ColliderComponent( Actor* act, json AABB ) { //fare due collider
 
     actor   = act;
 
@@ -30,8 +30,14 @@ void ColliderComponent::update( const double deltatime ) {
 
 }
 
-void ColliderComponent::onCollision(  ) {
+void ColliderComponent::onCollision( ColliderComponent* othercollider ) {
 
     std::cout << "collision happening" << std::endl;
-    actor->setVy( -( actor->getVy() ) );
+
+    //if othercollider name == 
+
+    //fai delle cose all'altro collider
+    othercollider->actor->setVy( -( othercollider->actor->getVy() ) );
+    //fai delle cose a te stesso
+    //actor->
 }

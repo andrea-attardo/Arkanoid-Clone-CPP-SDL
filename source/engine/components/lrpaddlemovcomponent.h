@@ -19,8 +19,7 @@ public:
 private:
     Actor* actor;
     SDL_Rect boundRect;
-    double vx;
-    double vy;
+
     double v;
 
     Engine* engine;

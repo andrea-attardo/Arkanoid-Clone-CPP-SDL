@@ -16,8 +16,8 @@ void CollisionSystem::process() {
                  ( a->getAABB()->h != b->getAABB()->h ) ) {
 
                 if ( SDL_HasIntersection( a->getAABB(), b->getAABB() ) ) {
-                    a->onCollision();
-                    //b->onCollision();
+                    a->onCollision(b);
+                    // non serve b->onCollision(a); perche nel ciclo for succede b->oncollisioon(b)
                 }
             }
 

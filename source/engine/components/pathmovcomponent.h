@@ -27,8 +27,7 @@ private:
     double nextlegTime;
     double distanceXs;
     double distanceYs;
-    double vx;
-    double vy;
+
 };
 
 #endif
