@@ -14,13 +14,12 @@ public:
 
     void process();
 
-    void registerColliders( SDL_Rect* collider, ColliderComponent* collcmpinstnc );
+    void registerColliders( ColliderComponent* collider );
 
-    void deregisterColliders( const SDL_Rect* collider );
+    void deregisterColliders( ColliderComponent* collider );
 
 private:
-    std::vector<SDL_Rect*>   colliders;
-    ColliderComponent*      collcmpInstance;
+    std::vector<ColliderComponent*>  colliders;
 
 };
 

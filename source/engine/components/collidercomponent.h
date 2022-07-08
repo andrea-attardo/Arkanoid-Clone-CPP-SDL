@@ -19,7 +19,9 @@ public:
 
     void update( const double deltatime );
 
-    void onCollision(const SDL_Rect* otherCollider );
+    void onCollision();
+
+    const SDL_Rect* getAABB() { return &aabb; };
 
 private:
     

@@ -19,7 +19,7 @@ ColliderComponent::ColliderComponent( Actor* act, json AABB ) {
 
 void ColliderComponent::load() {
 
-    engine->getCollisionsys()->registerColliders( &aabb, this );
+    engine->getCollisionsys()->registerColliders( this );
 
 }
 
@@ -30,7 +30,7 @@ void ColliderComponent::update( const double deltatime ) {
 
 }
 
-void ColliderComponent::onCollision( const SDL_Rect* otherCollider ) {
+void ColliderComponent::onCollision(  ) {
 
     std::cout << "collision happening" << std::endl;
     //chiamerà la funzione

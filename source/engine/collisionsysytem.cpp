@@ -2,48 +2,41 @@
 #include "collisionsysytem.h"
 #include "components/collidercomponent.h"
 
-CollisionSystem::CollisionSystem() {
-
-    collcmpInstance = NULL;
-    //othercollcmpInstance
-    //o funzioni oltre all'instance?
-}
+CollisionSystem::CollisionSystem() {}
 
 
 void CollisionSystem::process() {
 
-    
-    for ( SDL_Rect* a : colliders ) {
-        for ( SDL_Rect* b : colliders ) {
+    for ( ColliderComponent* a : colliders ) {
+        for ( ColliderComponent* b : colliders ) {
 
-            if ( ( a->x != b->x ) ||
-                 ( a->y != b->y ) ||
-                 ( a->w != b->w ) ||
-                 ( a->h != b->h )  ) {
+            if ( ( a->getAABB()->x != b->getAABB()->x ) ||
+                 ( a->getAABB()->y != b->getAABB()->y ) ||
+                 ( a->getAABB()->w != b->getAABB()->w ) ||
+                 ( a->getAABB()->h != b->getAABB()->h ) ) {
 
-                if ( SDL_HasIntersection( a, b ) ) {
-                    collcmpInstance->onCollision( b );
+                if ( SDL_HasIntersection( a->getAABB(), b->getAABB() ) ) {
+                    a->onCollision();
+                    b->onCollision();
                 }
             }
 
         }
     }
-    
+
 }
 
 
-void CollisionSystem::registerColliders( SDL_Rect* collider, ColliderComponent* cmpinstnc ) {
+void CollisionSystem::registerColliders( ColliderComponent* collider ) {
     
     colliders.push_back( collider );
-
-    collcmpInstance = cmpinstnc;
-    
+ 
 }
 
 
-void CollisionSystem::deregisterColliders( const SDL_Rect* collider ) {
-    
-    //SDL_Rect non ha == operator
+void CollisionSystem::deregisterColliders( ColliderComponent* collider ) {
+
+    //da provare
     /*
     std::vector<SDL_Rect>::iterator it = std::find( colliders.begin(), colliders.end(), collider );
     colliders.erase( it );
