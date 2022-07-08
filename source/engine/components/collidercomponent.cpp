@@ -33,5 +33,5 @@ void ColliderComponent::update( const double deltatime ) {
 void ColliderComponent::onCollision(  ) {
 
     std::cout << "collision happening" << std::endl;
-    //chiamerà la funzione
+    actor->setVy( -( actor->getVy() ) );
 }

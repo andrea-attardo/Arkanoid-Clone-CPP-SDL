@@ -2,11 +2,15 @@
 
 
 Actor::Actor(json actDescr) {
+
 	name	= actDescr["name"];
 	x		= actDescr["x"];
 	y		= actDescr["y"];
 	w		= actDescr["w"];
 	h		= actDescr["h"];
+	vx		= actDescr["vx"];
+	vy		= actDescr["vy"];
+
 }
 
 void Actor::load() {

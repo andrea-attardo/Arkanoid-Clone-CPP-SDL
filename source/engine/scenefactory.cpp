@@ -38,7 +38,7 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                 }
                 if ( compDescr["type"] == "BounceMovComponent" )
                 {
-                    BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr, compDescr["boundrect"] );
+                    BounceMovComponent* bounce = new BounceMovComponent( actor, compDescr["boundrect"] );
                     actor->addComponent( bounce );
                 }
                 if ( compDescr["type"] == "PathMovComponent" )

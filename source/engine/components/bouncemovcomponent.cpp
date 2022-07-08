@@ -2,44 +2,42 @@
 #include "bouncemovcomponent.h"
 
 
-	BounceMovComponent::BounceMovComponent( Actor * actor, json actorDescr, json boundrectDescr ) {
+	BounceMovComponent::BounceMovComponent( Actor * actor, json boundrectDescr ) {
 
 		pActor		= actor;
 		boundRect	= { boundrectDescr["x"], boundrectDescr["y"],
 						boundrectDescr["w"], boundrectDescr["h"]};
-		vx			= actorDescr["vx"];
-		vy			= actorDescr["vy"];
-
+		
 	}
 
 
 	void BounceMovComponent::update( const double deltatime ) {
 
-		pActor->setX( pActor->getX() + ( vx * deltatime ) );
-		pActor->setY( pActor->getY() + ( vy * deltatime ) );
+		pActor->setX( pActor->getX() + ( pActor->getVx() * deltatime ) );
+		pActor->setY( pActor->getY() + ( pActor->getVy() * deltatime ) );
 
 		//da sistemare
 		if ( pActor->getX() <= boundRect.x )
 		{
 			pActor->setX( boundRect.x );
-			vx = -vx;
+			pActor->setVx( -(pActor->getVx()) );
 		}
         else if ( pActor->getX() + pActor->getW() >= boundRect.w )
 		{
 			pActor->setX( boundRect.w - pActor->getW() );
-			vx = -vx;
+			pActor->setVx( -( pActor->getVx() ) );
 		}
 
 
 		if ( pActor->getY() <= boundRect.y )
 		{
 			pActor->setY( boundRect.y );
-			vy = -vy;
+			pActor->setVy( -( pActor->getVy() ) );
 		}
 		else if ( pActor->getY() + pActor->getH() >= boundRect.h )
 		{
 			pActor->setY( boundRect.h - pActor->getH() );
-			vy = -vy;
+			pActor->setVy( -( pActor->getVy() ) );
 		}
 
 		
