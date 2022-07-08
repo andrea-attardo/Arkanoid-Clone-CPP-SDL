@@ -1,15 +1,20 @@
-/*
+
 #include <iostream>
 #include "collidercomponent.h"
+#include "../engine.h"
 
 
 ColliderComponent::ColliderComponent( Actor* act, json AABB ) {
 
-    actor = act;
-    aabb.w = AABB["w"];
-    aabb.h = AABB["h"];
+    actor   = act;
 
-    engine = Engine::instance();
+    aabb.x  = (int)actor->getX();
+    aabb.y  = (int)actor->getY();
+    aabb.w  = AABB["w"];
+    aabb.h  = AABB["h"];
+
+    engine  = Engine::instance();
+
 }
 
 void ColliderComponent::load() {
@@ -20,14 +25,13 @@ void ColliderComponent::load() {
 
 void ColliderComponent::update( const double deltatime ) {
 
-    aabb.x = actor->getX();
-    aabb.y = actor->getY();
+    aabb.x = (int)actor->getX();
+    aabb.y = (int)actor->getY();
 
 }
 
 void ColliderComponent::onCollision( const SDL_Rect* otherCollider ) {
 
     std::cout << "collision happening" << std::endl;
-
+    //chiamerà la funzione
 }
-*/

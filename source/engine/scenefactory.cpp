@@ -9,6 +9,7 @@
 #include "components/pathmovcomponent.h"
 #include "components/floatmovcomponent.h"
 #include "components/lrpaddlemovcomponent.h"
+#include "components/collidercomponent.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -55,13 +56,11 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                     LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
                     actor->addComponent( lrpaddling );
                 }
-                /*
                 if ( compDescr["type"] == "ColliderComponent" )
                 {
                     ColliderComponent* collider = new ColliderComponent( actor, compDescr["aabb"] );
                     actor->addComponent( collider );
                 }
-                */
 
             }
 

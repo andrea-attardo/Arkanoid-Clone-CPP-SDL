@@ -6,6 +6,8 @@
 #include "SDL.h"
 #include "component.h"
 
+
+
 class InputSystem {
 public:
 

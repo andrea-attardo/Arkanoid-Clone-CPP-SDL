@@ -26,7 +26,7 @@ public:
     void close();
 
     InputSystem*     getInputsys() { return &inputsys; }
-    //CollisionSystem* getCollisionsys() { return collisionsys; }
+    CollisionSystem* getCollisionsys() { return &collisionsys; }
   
 private:
 
@@ -40,7 +40,7 @@ private:
     Scene*          scene;
     
     InputSystem     inputsys;
-    //CollisionSystem* collisionsys;
+    CollisionSystem collisionsys;
 
     SDL_Event		Event;
     bool			quit;

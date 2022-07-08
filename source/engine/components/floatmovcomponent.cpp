@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../engine.h"
 #include "floatmovcomponent.h"
 
 FloatMovComponent::FloatMovComponent( Actor* act, json boundrDescr, double velocity ) {

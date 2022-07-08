@@ -1,12 +1,13 @@
-/*
+
 #ifndef COLLIDERCOMPONENT_H
 #define COLLIDERCOMPONENT_H
 
 #include "SDL.h"
-#include "../engine.h"
 #include "../actor.h"
 #include "json.hpp"
 using json = nlohmann::json;
+
+class Engine;
 
 class ColliderComponent : public Component {
 
@@ -31,4 +32,3 @@ private:
 
 
 #endif // !COLLIDERCOMPONENT_H
-*/

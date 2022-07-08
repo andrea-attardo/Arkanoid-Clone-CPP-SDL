@@ -2,10 +2,11 @@
 #define FLOATMOVCOMPONENT_H
 
 #include "SDL.h"
-#include "../engine.h"
 #include "../actor.h"
 #include "json.hpp"
 using json = nlohmann::json;
+
+class Engine;
 
 class FloatMovComponent: public Component {
 public:
