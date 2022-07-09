@@ -2,14 +2,13 @@
 #include "../engine.h"
 #include "floatmovcomponent.h"
 
-FloatMovComponent::FloatMovComponent( Actor* act, json boundrDescr, double velocity ) {
+FloatMovComponent::FloatMovComponent( Actor* act, json boundrDescr, double acceleration ) {
 
     actor = act;
     boundRect = { boundrDescr["x"], boundrDescr["y"],
                   boundrDescr["w"], boundrDescr["h"] };
-    vx = 0.0;
-    vy = 0.0;
-    v = velocity;
+    
+    acc = acceleration;
 
     pFunc = &Component::keyAction;
    
@@ -27,12 +26,30 @@ FloatMovComponent::FloatMovComponent( Actor* act, json boundrDescr, double veloc
 
 void FloatMovComponent::update(const double deltatime) {
 
-    actor->setX( actor->getX() + ( vx * deltatime ) );
-    actor->setY( actor->getY() + ( vy * deltatime ) );
+    actor->setX( actor->getX() + ( actor->getVx() * deltatime ));
+    actor->setY( actor->getY() + ( actor->getVy() * deltatime ) );
+
 
     //inertia
-    ( vx > 0 ) ? ( vx -= v * deltatime ) : ( vx += v * deltatime );
-    ( vy > 0 ) ? ( vy -= v * deltatime ) : ( vy += v * deltatime );
+    if ( actor->getVx() > 0 )
+    {
+        actor->setVx( actor->getVx() - ( acc * deltatime ) );
+    }
+    else
+    {
+
+        actor->setVx( actor->getVx() + ( acc * deltatime ) );
+    }
+
+    if ( actor->getVy() > 0 )
+    {
+        actor->setVy( actor->getVy() - ( acc * deltatime ) );
+    }
+    else
+    {
+
+        actor->setVy( actor->getVy() + ( acc * deltatime ) );
+    }
 
     
     //stop at bound rect
@@ -63,22 +80,22 @@ void FloatMovComponent::keyAction( SDL_Scancode keypressed ) {
 
     if ( keypressed == SDL_SCANCODE_UP )
     {
-        vy = -v ;
+        actor->setVy( -acc );
     }
 
     if ( keypressed == SDL_SCANCODE_DOWN )
     {
-        vy = +v;
+        actor->setVy( +acc );
     }
 
     if ( keypressed == SDL_SCANCODE_LEFT )
     {
-        vx = -v;
+        actor->setVx( -acc );
     }
 
     if ( keypressed == SDL_SCANCODE_RIGHT )
     {
-        vx = +v;
+        actor->setVx( +acc );
     }
 
 

@@ -1,4 +1,4 @@
-﻿  collisionsysytem.cpp
-  collidercomponent.cpp
+﻿  lrpaddlemovcomponent.cpp
+  scenefactory.cpp
   Generating Code...
   pacmanc++.vcxproj -> C:\personale\programming\projects\pacman\x64\Debug\pacmanc++.exe

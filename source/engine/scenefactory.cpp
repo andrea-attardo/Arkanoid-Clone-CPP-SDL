@@ -48,12 +48,12 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                 }
                 if ( compDescr["type"] == "FloatMovComponent" )
                 {
-                    FloatMovComponent* floating = new FloatMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
+                    FloatMovComponent* floating = new FloatMovComponent( actor, compDescr["boundrect"], compDescr["acc"] );
                     actor->addComponent( floating );
                 }
                 if ( compDescr["type"] == "LrPaddleMovComponent" )
                 {
-                    LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["v"] );
+                    LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["acc"] );
                     actor->addComponent( lrpaddling );
                 }
                 if ( compDescr["type"] == "ColliderComponent" )

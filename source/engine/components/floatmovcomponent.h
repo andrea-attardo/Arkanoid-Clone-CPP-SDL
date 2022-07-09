@@ -20,9 +20,7 @@ public:
 private:
     Actor* actor;
     SDL_Rect boundRect;
-    double vx;
-    double vy;
-    double v;
+    double acc;
 
     Engine* engine;
     void( Component::* pFunc )( SDL_Scancode );
