@@ -19,11 +19,13 @@ public:
 
     void update( const double deltatime );
 
-    void onCollision( ColliderComponent* othercollider );
+    const SDL_Rect* getAABB() { return &aabb; }
 
-    const SDL_Rect* getAABB() { return &aabb; };
+    virtual void onCollision( ColliderComponent* othercollider ) {}
 
-private:
+    virtual const double getPhysicsProp( std::string prop ) = 0;
+
+protected:
     
     Actor* actor;
     SDL_Rect aabb;

@@ -3,8 +3,8 @@
 
     {
       "name": "brick",
-      "x": 0,
-      "y": 0,
+      "x": 300,
+      "y": 300,
       "w": 64,
       "h": 32,
       "vx": 0,
@@ -17,13 +17,17 @@
           "filename": "assets/brick.bmp"
         },
         {
-          "name": "collider",
-          "type": "ColliderComponent",
+          "name": "kineticcollider",
+          "type": "KineticCollComponent",
           "aabb": {
             "x": 0,
             "y": 0,
             "w": 64,
             "h": 32
+          },
+          "kineticprop": {
+            "kinen": 0,
+            "elas": 0
           }
         }
       ]
@@ -58,13 +62,17 @@
         },
 
         {
-          "name": "collider",
-          "type": "ColliderComponent",
+          "name": "kineticcollider",
+          "type": "KineticCollComponent",
           "aabb": {
             "x": 0,
             "y": 0,
             "w": 32,
             "h": 32
+          },
+          "kineticprop": {
+            "kinen": 50,
+            "elas": 100
           }
         }
 
@@ -100,13 +108,17 @@
         },
 
         {
-          "name": "collider",
-          "type": "ColliderComponent",
+          "name": "kineticcollider",
+          "type": "KineticCollComponent",
           "aabb": {
             "x": 0,
             "y": 0,
             "w": 128,
             "h": 24
+          },
+          "kineticprop": {
+            "kinen": 100,
+            "elas": 10
           }
         }
 

@@ -54,6 +54,9 @@
     <ClCompile Include="source\engine\components\collidercomponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\engine\components\kineticcollcomponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\scenefactory.h">
@@ -93,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\engine\components\collidercomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\engine\components\kineticcollcomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

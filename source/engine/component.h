@@ -15,6 +15,7 @@ public:
 
 	virtual void keyAction( SDL_Scancode keypressed ) {};
 
+
 };
 
 #endif 

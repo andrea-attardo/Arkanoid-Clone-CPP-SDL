@@ -17,11 +17,11 @@ public:
 
 	void render( SDL_Surface* destsur );
 
-	void addActor( Actor actor );
+	void addActor( Actor* actor );
 
 
 private:
-	std::vector<Actor> actors;
+	std::vector<Actor*> actors;
 };
 
 #endif // !SCENE_H

@@ -4,7 +4,9 @@
 #include "../engine.h"
 
 
-ColliderComponent::ColliderComponent( Actor* act, json AABB ) { //fare due collider
+ColliderComponent::ColliderComponent( Actor* act, json AABB ) {
+
+    engine  = Engine::instance();
 
     actor   = act;
 
@@ -18,9 +20,6 @@ ColliderComponent::ColliderComponent( Actor* act, json AABB ) { //fare due colli
         std::cerr << "aabb has different size than sprite size" << std::endl;
     }
 
-    aabb.h  = AABB["h"];
-
-    engine  = Engine::instance();
 
 }
 
@@ -37,14 +36,3 @@ void ColliderComponent::update( const double deltatime ) {
 
 }
 
-void ColliderComponent::onCollision( ColliderComponent* othercollider ) {
-
-    std::cout << "collision happening" << std::endl;
-
-    //if othercollider name == 
-
-    //fai delle cose all'altro collider
-    othercollider->actor->setVy( -( othercollider->actor->getVy() ) );
-    //fai delle cose a te stesso
-    //actor->
-}

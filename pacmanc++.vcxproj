@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="source\engine\actor.cpp" />
     <ClCompile Include="source\engine\collisionsysytem.cpp" />
+    <ClCompile Include="source\engine\components\kineticcollcomponent.cpp" />
     <ClCompile Include="source\engine\components\bouncemovcomponent.cpp" />
     <ClCompile Include="source\engine\components\collidercomponent.cpp" />
     <ClCompile Include="source\engine\components\floatmovcomponent.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="source\engine\actor.h" />
     <ClInclude Include="source\engine\collisionsysytem.h" />
     <ClInclude Include="source\engine\component.h" />
+    <ClInclude Include="source\engine\components\kineticcollcomponent.h" />
     <ClInclude Include="source\engine\components\bouncemovcomponent.h" />
     <ClInclude Include="source\engine\components\collidercomponent.h" />
     <ClInclude Include="source\engine\components\floatmovcomponent.h" />

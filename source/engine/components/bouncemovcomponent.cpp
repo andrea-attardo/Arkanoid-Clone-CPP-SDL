@@ -22,7 +22,7 @@
 			pActor->setX( boundRect.x );
 			pActor->setVx( -(pActor->getVx()) );
 		}
-        else if ( pActor->getX() + pActor->getW() >= boundRect.w )
+        if ( pActor->getX() + pActor->getW() >= boundRect.w )
 		{
 			pActor->setX( boundRect.w - pActor->getW() );
 			pActor->setVx( -( pActor->getVx() ) );
@@ -34,13 +34,21 @@
 			pActor->setY( boundRect.y );
 			pActor->setVy( -( pActor->getVy() ) );
 		}
-		else if ( pActor->getY() + pActor->getH() >= boundRect.h )
+
+		//tolto per gestire la palla in arkanoid
+		/*
+		if ( pActor->getY() + pActor->getH() >= boundRect.h )
 		{
 			pActor->setY( boundRect.h - pActor->getH() );
 			pActor->setVy( -( pActor->getVy() ) );
 		}
-
-		
+		*/
+		if ( pActor->getY() + pActor->getH() >= boundRect.h )
+		{
+			pActor->setX( boundRect.w / 2 );
+			pActor->setY( boundRect.h / 2 );
+			
+		}
 	}
 
 

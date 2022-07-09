@@ -3,13 +3,13 @@
 #include <fstream>
 #include "scenefactory.h"
 #include "actor.h"
-#include "component.h"
 #include "components/staticspritecomponent.h"
 #include "components/bouncemovcomponent.h"
 #include "components/pathmovcomponent.h"
 #include "components/floatmovcomponent.h"
 #include "components/lrpaddlemovcomponent.h"
 #include "components/collidercomponent.h"
+#include "components/kineticcollcomponent.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -56,15 +56,15 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                     LrPaddleMovComponent* lrpaddling = new LrPaddleMovComponent( actor, compDescr["boundrect"], compDescr["acc"] );
                     actor->addComponent( lrpaddling );
                 }
-                if ( compDescr["type"] == "ColliderComponent" )
+                if ( compDescr["type"] == "KineticCollComponent" )
                 {
-                    ColliderComponent* collider = new ColliderComponent( actor, compDescr["aabb"] );
-                    actor->addComponent( collider );
+                    KineticCollComponent* kineticcollider = new KineticCollComponent( actor, compDescr["aabb"], compDescr["kineticprop"] );
+                    actor->addComponent( kineticcollider );
                 }
 
             }
 
-            scene->addActor( *actor );
+            scene->addActor( actor );
         }
         return scene;
     }
