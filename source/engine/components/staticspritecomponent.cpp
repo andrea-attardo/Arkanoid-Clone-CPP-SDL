@@ -3,9 +3,9 @@
 #include "staticspritecomponent.h"
 
 
-	StaticSpriteComponent::StaticSpriteComponent( std::string filename, Actor* actor ) {
+	StaticSpriteComponent::StaticSpriteComponent( std::string filename, Actor* act ) {
 
-		pActor			= actor;
+		actor			= act;
 		image			= NULL;
 		imgpath			= filename;
 		destrect		= { 0, 0, 0, 0 };
@@ -22,16 +22,16 @@
 		}
 		else
 		{
-			if ( image->w != pActor->getW() )
+			if ( image->w != actor->getW() )
 			{
-				std::cerr << "Actor " << pActor->getName() 
+				std::cerr << "Actor " << actor->getName() 
 						  << " width is different from loaded image." 
 						  << std::endl;
 			}
 
-			if ( image->h != pActor->getH() )
+			if ( image->h != actor->getH() )
 			{
-				std::cerr << "Actor " << pActor->getName()
+				std::cerr << "Actor " << actor->getName()
 						  << " heigth is different from loaded image." 
 						  << std::endl;
 			}
@@ -42,10 +42,10 @@
 
 	void StaticSpriteComponent::render( SDL_Surface* destsur ) {
 
-		destrect.x = pActor->getX();
-		destrect.y = pActor->getY();
-		destrect.w = pActor->getW();
-		destrect.h = pActor->getW();
+		destrect.x = actor->getX();
+		destrect.y = actor->getY();
+		destrect.w = actor->getW();
+		destrect.h = actor->getW();
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
 
 	}

@@ -11,7 +11,7 @@ int main(int argc, char* args[]) {
 	Engine* engine = Engine::instance();
 
 	engine->init( WINDOW_WIDTH, WINDOW_HEIGTH );
-	engine->loadScene( "game/level1.json" );
+	engine->loadScene( "game/arkanoid.json" );
 
 	engine->gameloop();
 

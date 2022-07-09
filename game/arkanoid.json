@@ -1,0 +1,117 @@
+{
+  "actors": [
+
+    {
+      "name": "brick",
+      "x": 0,
+      "y": 0,
+      "w": 64,
+      "h": 32,
+      "vx": 0,
+      "vy": 0,
+
+      "components": [
+        {
+          "name": "sprite",
+          "type": "StaticSpriteComponent",
+          "filename": "assets/brick.bmp"
+        },
+        {
+          "name": "collider",
+          "type": "ColliderComponent",
+          "aabb": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          }
+        }
+      ]
+    },
+
+
+    {
+      "name": "ball",
+      "x": 500,
+      "y": 500,
+      "w": 32,
+      "h": 32,
+      "vx": 600,
+      "vy": 600,
+
+      "components": [
+        {
+          "name": "sprite",
+          "type": "StaticSpriteComponent",
+          "filename": "assets/ball.bmp"
+        },
+
+        {
+          "name": "bounce",
+          "type": "BounceMovComponent",
+          "boundrect": {
+            "x": 0,
+            "y": 0,
+            "w": 1024,
+            "h": 768
+          }
+        },
+
+        {
+          "name": "collider",
+          "type": "ColliderComponent",
+          "aabb": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          }
+        }
+
+      ]
+    },
+
+    {
+      "name": "paddle",
+      "x": 396,
+      "y": 720,
+      "w": 128,
+      "h": 24,
+      "vx": 0,
+      "vy": 0,
+
+      "components": [
+        {
+          "name": "sprite",
+          "type": "StaticSpriteComponent",
+          "filename": "assets/paddle.bmp"
+        },
+
+        {
+          "name": "floating",
+          "type": "LrPaddleMovComponent",
+          "boundrect": {
+            "x": 0,
+            "y": 0,
+            "w": 1024,
+            "h": 768
+          },
+          "acc": 800
+        },
+
+        {
+          "name": "collider",
+          "type": "ColliderComponent",
+          "aabb": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 24
+          }
+        }
+
+      ]
+    }
+
+  ]
+}

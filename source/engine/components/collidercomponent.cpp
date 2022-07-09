@@ -13,6 +13,13 @@ ColliderComponent::ColliderComponent( Actor* act, json AABB ) { //fare due colli
     aabb.w  = AABB["w"];
     aabb.h  = AABB["h"];
 
+    if ( aabb.w != (int)actor->getW() || aabb.h != (int)actor->getH() )
+    {
+        std::cerr << "aabb has different size than sprite size" << std::endl;
+    }
+
+    aabb.h  = AABB["h"];
+
     engine  = Engine::instance();
 
 }

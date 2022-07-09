@@ -28,11 +28,11 @@ void LrPaddleMovComponent::update( const double deltatime ) {
     //inertia
     if ( actor->getVx() > 0 )
     {
-        actor->setVx( actor->getVx() - ( acc * deltatime ) );
+        actor->setVx( actor->getVx() -  ( 3 *  acc * deltatime ) );
     }
     else
     {
-       actor->setVx( actor->getVx() + ( acc * deltatime ) );
+       actor->setVx( actor->getVx() + ( 3 * acc * deltatime ) );
     }
   
 

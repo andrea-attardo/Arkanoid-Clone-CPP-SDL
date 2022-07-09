@@ -102,7 +102,7 @@ void Engine::update() {
 
 
 void Engine::render() {
-	if ( SDL_FillRect( windowSurface, NULL, SDL_MapRGB( windowSurface->format, 0, 0, 0 ) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
+	if ( SDL_FillRect( windowSurface, NULL, SDL_MapRGB( windowSurface->format, 200, 200, 200 ) ) != 0 ) printf( "FillRect failed: %s", SDL_GetError() );
 
 	scene->render( windowSurface );
 
