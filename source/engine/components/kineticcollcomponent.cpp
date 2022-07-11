@@ -25,22 +25,75 @@ void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
 
     if ( typeid( *othercollider ) == typeid( KineticCollComponent ) )
     {
-        
+
         if ( elasticity > othercollider->getPhysicsProp( "elasticity" ) ) //non mi piace getPhysicProp
         {
-            //actor->setX( actor->getX() - actor->getW() );
-            actor->setY( actor->getY() - actor->getH() );
-            actor->setVy( -( actor->getVy() ) );
-            //actor->setVx( -( actor->getVx() ) );
+
+            //evita il rimbalzo interno se ci sono più intersezioni
+
+            if ( aabb.x < othercollider->getAABB()->x &&
+                 aabb.x + aabb.w < othercollider->getAABB()->x + othercollider->getAABB()->w )
+            {
+                actor->setX( actor->getX() - ( aabb.x + aabb.w - othercollider->getAABB()->x ) );
+                actor->setVx( -( actor->getVx() ) );
+            }
+
+            else if ( aabb.x > othercollider->getAABB()->x )
+            {
+                if ( aabb.y + aabb.h < othercollider->getAABB()->y + othercollider->getAABB()->h )
+                {
+                    actor->setY( actor->getY() - ( aabb.y + aabb.h - othercollider->getAABB()->y ) );
+                    actor->setVy( -( actor->getVy() ) );
+                }
+                else if ( aabb.y + aabb.h < othercollider->getAABB()->y + othercollider->getAABB()->h )
+                {
+                    actor->setY( actor->getY() + ( othercollider->getAABB()->y + othercollider->getAABB()->h - aabb.y ) );
+                    actor->setVy( -( actor->getVy() ) );
+                }
+                else
+                {
+                    actor->setX( actor->getX() + ( othercollider->getAABB()->x + othercollider->getAABB()->w - aabb.x  ) );
+                    actor->setVx( -( actor->getVx() ) );
+                }
+                
+            }
+
         }
 
-        if ( kineticEn + elasticity <= othercollider->getPhysicsProp( "kineticEn" ) )
-        {
-            //provvisorio, va eliminato l'actor dalla memoria e i suoi component
-            actor->setX( -100 );
-            actor->setY( -100 );          
-        }
+        
 
     }
-      
+
+
+    if ( kineticEn + elasticity <= othercollider->getPhysicsProp( "kineticEn" ) )
+    {
+        //provvisorio, va eliminato l'actor dalla memoria e i suoi component
+        actor->setX( -100 );
+        actor->setY( -100 );
+    }
+
 }
+
+            
+
+
+
+
+        
+
+    
+      
+
+
+/*
+            else if ( ( aabb.y + aabb.h ) < othercollider->getAABB()->y + othercollider->getAABB()->h )
+            {
+                actor->setY( actor->getY() - ( aabb.y + aabb.h - othercollider->getAABB()->y ) );
+                actor->setVy( -( actor->getVy() ) );
+            }
+            else if ( ( aabb.y + aabb.h ) > othercollider->getAABB()->y + othercollider->getAABB()->h )
+            {
+                actor->setY( actor->getY() + ( aabb.y + aabb.h - othercollider->getAABB()->y ) );
+                actor->setVy( -( actor->getVy() ) );
+            }
+            */

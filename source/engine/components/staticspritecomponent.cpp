@@ -3,9 +3,19 @@
 #include "staticspritecomponent.h"
 
 
-	StaticSpriteComponent::StaticSpriteComponent( std::string filename, Actor* act ) {
+	StaticSpriteComponent::StaticSpriteComponent( std::string filename, Actor* act, json layoutDescr, int iact ) {
 
 		actor			= act;
+
+		iActor			= iact;
+		xoffset			= layoutDescr["xoffset"];
+		yoffset			= layoutDescr["yoffset"];
+		repeat			= layoutDescr["repeat"];
+		repeatoffset	= layoutDescr["repeatoffset"];
+
+		actor->setX( (int)actor->getX() + ( xoffset * ( iActor % repeat ) ) );
+		actor->setY( (int)actor->getY() + ( yoffset * ( iActor % repeat ) ) + ( repeatoffset * ( iActor / repeat ) ) );
+
 		image			= NULL;
 		imgpath			= filename;
 		destrect		= { 0, 0, 0, 0 };
@@ -42,10 +52,11 @@
 
 	void StaticSpriteComponent::render( SDL_Surface* destsur ) {
 
-		destrect.x = actor->getX();
-		destrect.y = actor->getY();
-		destrect.w = actor->getW();
-		destrect.h = actor->getW();
+		destrect.x = (int)actor->getX();
+		destrect.y = (int)actor->getY();
+		destrect.w = (int)actor->getW();
+		destrect.h = (int)actor->getW();
+
 		SDL_BlitSurface( image, NULL, destsur, &destrect );
 
 	}

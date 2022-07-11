@@ -1,7 +1,7 @@
 #include <iostream>
-#include "lrpaddlemovcomponent.h"
+#include "lrmovcomponent.h"
 
-LrPaddleMovComponent::LrPaddleMovComponent( Actor* act, json boundrDescr, double acceleration ) {
+LRMovComponent::LRMovComponent( Actor* act, json boundrDescr, double acceleration ) {
 
     actor = act;
     boundRect = { boundrDescr["x"], boundrDescr["y"],
@@ -19,7 +19,7 @@ LrPaddleMovComponent::LrPaddleMovComponent( Actor* act, json boundrDescr, double
 
 
 
-void LrPaddleMovComponent::update( const double deltatime ) {
+void LRMovComponent::update( const double deltatime ) {
 
 
     actor->setX( actor->getX() + ( actor->getVx() * deltatime ));
@@ -50,7 +50,7 @@ void LrPaddleMovComponent::update( const double deltatime ) {
 }
 
 
-void LrPaddleMovComponent::keyAction( SDL_Scancode keypressed ) {
+void LRMovComponent::keyAction( SDL_Scancode keypressed ) {
 
     if ( keypressed == SDL_SCANCODE_LEFT )
     {

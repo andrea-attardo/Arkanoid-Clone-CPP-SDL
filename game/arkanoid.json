@@ -3,12 +3,20 @@
 
     {
       "name": "brick",
-      "x": 300,
-      "y": 300,
+      "x": 0,
+      "y": 0,
       "w": 64,
       "h": 32,
       "vx": 0,
       "vy": 0,
+
+      "startlayout": {
+        "count": 60,
+        "xoffset": 65,
+        "yoffset": 0,
+        "repeat": 10,
+        "repeatoffset": 33
+      },
 
       "components": [
         {
@@ -40,8 +48,16 @@
       "y": 500,
       "w": 32,
       "h": 32,
-      "vx": 600,
-      "vy": 600,
+      "vx": 300,
+      "vy": 300,
+
+      "startlayout": {
+        "count": 1,
+        "xoffset": 0,
+        "yoffset": 0,
+        "repeat": 1,
+        "repeatoffset": 0
+      },
 
       "components": [
         {
@@ -88,6 +104,14 @@
       "vx": 0,
       "vy": 0,
 
+      "startlayout": {
+        "count": 1,
+        "xoffset": 0,
+        "yoffset": 0,
+        "repeat": 1,
+        "repeatoffset": 0
+      },
+
       "components": [
         {
           "name": "sprite",
@@ -96,8 +120,8 @@
         },
 
         {
-          "name": "floating",
-          "type": "LrPaddleMovComponent",
+          "name": "leftrightmov",
+          "type": "LRMovComponent",
           "boundrect": {
             "x": 0,
             "y": 0,

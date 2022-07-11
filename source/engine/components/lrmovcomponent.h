@@ -1,5 +1,5 @@
-#ifndef LRPADDLEMOVCOMPONENT_H
-#define LRPADDLECOMPONENT_H
+#ifndef LRMOVCOMPONENT_H
+#define LRMOVCOMPONENT_H
 
 #include "SDL.h"
 #include "../engine.h"
@@ -7,10 +7,10 @@
 #include "json.hpp"
 using json = nlohmann::json;
 
-class LrPaddleMovComponent : public Component {
+class LRMovComponent : public Component {
 public:
 
-    LrPaddleMovComponent( Actor* act, json boundrDescr, double velocity );
+    LRMovComponent( Actor* act, json boundrDescr, double velocity );
 
     void update( const double deltatime );
 

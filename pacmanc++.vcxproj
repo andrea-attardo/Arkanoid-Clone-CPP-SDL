@@ -136,7 +136,7 @@
     <ClCompile Include="source\engine\components\bouncemovcomponent.cpp" />
     <ClCompile Include="source\engine\components\collidercomponent.cpp" />
     <ClCompile Include="source\engine\components\floatmovcomponent.cpp" />
-    <ClCompile Include="source\engine\components\lrpaddlemovcomponent.cpp" />
+    <ClCompile Include="source\engine\components\lrmovcomponent.cpp" />
     <ClCompile Include="source\engine\components\pathmovcomponent.cpp" />
     <ClCompile Include="source\engine\components\staticspritecomponent.cpp" />
     <ClCompile Include="source\engine\engine.cpp" />
@@ -153,7 +153,7 @@
     <ClInclude Include="source\engine\components\bouncemovcomponent.h" />
     <ClInclude Include="source\engine\components\collidercomponent.h" />
     <ClInclude Include="source\engine\components\floatmovcomponent.h" />
-    <ClInclude Include="source\engine\components\lrpaddlemovcomponent.h" />
+    <ClInclude Include="source\engine\components\lrmovcomponent.h" />
     <ClInclude Include="source\engine\components\pathmovcomponent.h" />
     <ClInclude Include="source\engine\components\staticspritecomponent.h" />
     <ClInclude Include="source\engine\engine.h" />

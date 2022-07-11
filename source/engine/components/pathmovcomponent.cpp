@@ -32,9 +32,9 @@ void PathMovComponenet::update( const double deltatime ) {
     
     //da sistemare
     if ( ( pActor->getVx() > 0 && distanceXs >= 0 ) ||
-         ( pActor->getVx() < 0 &&  distanceXs <  0 ) ||
-         ( pActor->getVy() > 0 &&  distanceYs >= 0 ) ||
-         ( pActor->getVy() < 0 &&  distanceYs <  0 ) )
+         ( pActor->getVx() < 0 && distanceXs <  0 ) ||
+         ( pActor->getVy() > 0 && distanceYs >= 0 ) ||
+         ( pActor->getVy() < 0 && distanceYs <  0 ) )
     { 
         pActor->setX( pActor->getX() + ( pActor->getVx() * deltatime ) );
         pActor->setY( pActor->getY() + ( pActor->getVy() * deltatime ) );

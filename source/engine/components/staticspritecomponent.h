@@ -9,7 +9,7 @@
 class StaticSpriteComponent: public Component { 
 
 public:
-	StaticSpriteComponent( std::string filename, Actor* act );
+	StaticSpriteComponent( std::string filename, Actor* act, json layoutDescr, int iact );
 
 	void load();
 
@@ -17,9 +17,15 @@ public:
 
 private:
 	SDL_Surface*	image;
-	SDL_Rect		destrect;
-	Actor*			actor;
 	std::string		imgpath;
+	SDL_Rect		destrect;
+
+	Actor*			actor;
+	int				iActor;
+	int				xoffset;
+	int				yoffset;
+	int				repeat;
+	int				repeatoffset;
 };
 
 
