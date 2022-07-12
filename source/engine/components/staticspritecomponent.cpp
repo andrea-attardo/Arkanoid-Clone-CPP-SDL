@@ -10,11 +10,11 @@
 		iActor			= iact;
 		xoffset			= layoutDescr["xoffset"];
 		yoffset			= layoutDescr["yoffset"];
-		repeat			= layoutDescr["repeat"];
-		repeatoffset	= layoutDescr["repeatoffset"];
+		perline			= layoutDescr["perline"];
+		lineoffset		= layoutDescr["lineoffset"];
 
-		actor->setX( (int)actor->getX() + ( xoffset * ( iActor % repeat ) ) );
-		actor->setY( (int)actor->getY() + ( yoffset * ( iActor % repeat ) ) + ( repeatoffset * ( iActor / repeat ) ) );
+		actor->setX( (int)actor->getX() + ( xoffset * ( iActor % perline ) ) );
+		actor->setY( (int)actor->getY() + ( yoffset * ( iActor % perline ) ) + ( lineoffset * ( iActor / perline ) ) );
 
 		image			= NULL;
 		imgpath			= filename;

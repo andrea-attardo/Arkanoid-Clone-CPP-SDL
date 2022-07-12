@@ -14,8 +14,8 @@
         "count": 55,
         "xoffset": 80,
         "yoffset": 0,
-        "repeat": 11,
-        "repeatoffset": 50
+        "perline": 11,
+        "lineoffset": 50
       },
 
       "components": [
@@ -33,7 +33,7 @@
             "w": 64,
             "h": 32
           },
-          "kineticprop": {
+          "physicprop": {
             "kinen": 0,
             "elas": 0
           }
@@ -55,8 +55,8 @@
         "count": 1,
         "xoffset": 0,
         "yoffset": 0,
-        "repeat": 1,
-        "repeatoffset": 0
+        "perline": 1,
+        "lineoffset": 0
       },
 
       "components": [
@@ -86,7 +86,7 @@
             "w": 16,
             "h": 16
           },
-          "kineticprop": {
+          "physicprop": {
             "kinen": 50,
             "elas": 100
           }
@@ -108,8 +108,8 @@
         "count": 1,
         "xoffset": 0,
         "yoffset": 0,
-        "repeat": 1,
-        "repeatoffset": 0
+        "perline": 1,
+        "lineoffset": 0
       },
 
       "components": [
@@ -140,7 +140,7 @@
             "w": 128,
             "h": 24
           },
-          "kineticprop": {
+          "physicprop": {
             "kinen": 100,
             "elas": 10
           }

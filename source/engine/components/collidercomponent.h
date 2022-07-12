@@ -23,7 +23,9 @@ public:
 
     virtual void onCollision( ColliderComponent* othercollider ) {}
 
-    virtual const double getPhysicsProp( std::string prop ) = 0;
+    virtual const double getKineticEn() = 0;
+    virtual const double getElasticity() = 0;
+
 
 protected:
     

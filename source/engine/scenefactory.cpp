@@ -62,7 +62,7 @@ Scene* SceneFactory::makeScene( std::string fileName ) {
                     }
                     if ( compDescr["type"] == "KineticCollComponent" )
                     {
-                        KineticCollComponent* kineticcollider = new KineticCollComponent( actor, compDescr["aabb"], compDescr["kineticprop"] );
+                        KineticCollComponent* kineticcollider = new KineticCollComponent( actor, compDescr["aabb"], compDescr["physicprop"] );
                         actor->addComponent( kineticcollider );
                     }
 

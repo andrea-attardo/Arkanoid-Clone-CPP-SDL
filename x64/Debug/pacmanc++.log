@@ -1,3 +1,4 @@
-﻿  kineticcollcomponent.cpp
-C:\personale\programming\projects\pacman\pacmanc++\source\engine\components\kineticcollcomponent.cpp(18): warning C4715: 'KineticCollComponent::getPhysicsProp': not all control paths return a value
+﻿  staticspritecomponent.cpp
+  scenefactory.cpp
+  Generating Code...
   pacmanc++.vcxproj -> C:\personale\programming\projects\pacman\x64\Debug\pacmanc++.exe

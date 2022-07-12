@@ -24,8 +24,8 @@ private:
 	int				iActor;
 	int				xoffset;
 	int				yoffset;
-	int				repeat;
-	int				repeatoffset;
+	int				perline;
+	int				lineoffset;
 };
 
 

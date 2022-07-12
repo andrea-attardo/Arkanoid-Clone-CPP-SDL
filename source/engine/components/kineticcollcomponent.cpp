@@ -5,21 +5,14 @@
 
 KineticCollComponent::KineticCollComponent( Actor* act, json AABB, json kineticprop ) : ColliderComponent(act, AABB) {
 
-    kineticEn = kineticprop["kinen"];
-    elasticity = kineticprop["elas"];
-}
-
-
-const double KineticCollComponent::getPhysicsProp(std::string prop) { 
-
-        if ( prop == "kineticEn" ) return kineticEn; 
-        if ( prop == "elasticity" ) return elasticity; 
+    kineticEn    = kineticprop["kinen"];
+    elasticity   = kineticprop["elas"];
 
 }
 
 
 void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
-    std::cout << "collision happening" << std::endl;
+    std::cout << "collision happening." << std::endl;
 
     const SDL_Rect* bAABB = othercollider->getAABB();
 
@@ -36,8 +29,7 @@ void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
 
     if ( typeid( *othercollider ) == typeid( KineticCollComponent ) )
     {
-
-        if ( elasticity > othercollider->getPhysicsProp( "elasticity" ) ) //non mi piace getPhysicProp
+        if ( elasticity > othercollider->getElasticity() ) 
         {
             //repositioning
             if ( SDL_PointInRect( &aAABBrt, bAABB ) &&
@@ -97,7 +89,7 @@ void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
 
 
         
-        if ( kineticEn + elasticity <= othercollider->getPhysicsProp( "kineticEn" ) )
+        if ( kineticEn + elasticity <= othercollider->getKineticEn() )
         {
             //provvisorio, va eliminato l'actor dalla memoria e i suoi component
             actor->setX( -100 );

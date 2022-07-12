@@ -22,13 +22,13 @@ public:
 
     void onCollision( ColliderComponent* othercollider );
 
-    const double getPhysicsProp( std::string prop ); 
-
+    const double getKineticEn() { return kineticEn; }
+    const double getElasticity() { return elasticity; }
 
 private:
 
-    double kineticEn;  //in teoria massa * velocità
-    double elasticity; //resistenza cinetica
+    double kineticEn;  
+    double elasticity; 
 };
 
 
