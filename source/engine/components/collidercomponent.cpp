@@ -10,14 +10,14 @@ ColliderComponent::ColliderComponent( Actor* act, json AABB ) {
 
     actor   = act;
 
-    aabb.x  = (int)actor->getX();
-    aabb.y  = (int)actor->getY();
-    aabb.w  = AABB["w"];
-    aabb.h  = AABB["h"];
+    aAABB.x  = (int)actor->getX();
+    aAABB.y  = (int)actor->getY();
+    aAABB.w  = AABB["w"];
+    aAABB.h  = AABB["h"];
 
-    if ( aabb.w != (int)actor->getW() || aabb.h != (int)actor->getH() )
+    if ( aAABB.w != (int)actor->getW() || aAABB.h != (int)actor->getH() )
     {
-        std::cerr << "aabb has different size than sprite size" << std::endl;
+        std::cerr << "aAABB has different size than sprite size" << std::endl;
     }
 
 
@@ -31,8 +31,8 @@ void ColliderComponent::load() {
 
 void ColliderComponent::update( const double deltatime ) {
 
-    aabb.x = (int)actor->getX();
-    aabb.y = (int)actor->getY();
+    aAABB.x = (int)actor->getX();
+    aAABB.y = (int)actor->getY();
 
 }
 

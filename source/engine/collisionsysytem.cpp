@@ -8,20 +8,17 @@ CollisionSystem::CollisionSystem() {}
 void CollisionSystem::process() {
 
     for ( ColliderComponent* a : colliders ) {
+
         for ( ColliderComponent* b : colliders ) {
 
-            if ( ( a->getAABB()->x != b->getAABB()->x ) ||
-                 ( a->getAABB()->y != b->getAABB()->y ) ||
-                 ( a->getAABB()->w != b->getAABB()->w ) ||
-                 ( a->getAABB()->h != b->getAABB()->h ) ) {
-
-                if ( SDL_HasIntersection( a->getAABB(), b->getAABB() ) ) 
-                {
-                    a->onCollision(b);
-                }
+            if ( !SDL_RectEquals( a->getAABB(), b->getAABB() ) && 
+                  SDL_HasIntersection( a->getAABB(), b->getAABB() ) ) 
+            {
+                a->onCollision(b);
             }
 
         }
+
     }
 
 }

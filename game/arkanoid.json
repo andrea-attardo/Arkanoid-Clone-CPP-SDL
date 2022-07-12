@@ -3,19 +3,19 @@
 
     {
       "name": "brick",
-      "x": 0,
-      "y": 0,
+      "x": 65,
+      "y": 65,
       "w": 64,
       "h": 32,
       "vx": 0,
       "vy": 0,
 
       "startlayout": {
-        "count": 60,
-        "xoffset": 65,
+        "count": 55,
+        "xoffset": 80,
         "yoffset": 0,
-        "repeat": 10,
-        "repeatoffset": 33
+        "repeat": 11,
+        "repeatoffset": 50
       },
 
       "components": [
@@ -46,10 +46,10 @@
       "name": "ball",
       "x": 500,
       "y": 500,
-      "w": 32,
-      "h": 32,
-      "vx": 300,
-      "vy": 300,
+      "w": 16,
+      "h": 16,
+      "vx": 500,
+      "vy": 500,
 
       "startlayout": {
         "count": 1,
@@ -83,8 +83,8 @@
           "aabb": {
             "x": 0,
             "y": 0,
-            "w": 32,
-            "h": 32
+            "w": 16,
+            "h": 16
           },
           "kineticprop": {
             "kinen": 50,

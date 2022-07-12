@@ -28,11 +28,11 @@ void LRMovComponent::update( const double deltatime ) {
     //inertia
     if ( actor->getVx() > 0 )
     {
-        actor->setVx( actor->getVx() -  ( 3 *  acc * deltatime ) );
+        actor->setVx( actor->getVx() -  ( 5 *  acc * deltatime ) );
     }
     else
     {
-       actor->setVx( actor->getVx() + ( 3 * acc * deltatime ) );
+       actor->setVx( actor->getVx() + ( 5 * acc * deltatime ) );
     }
   
 
