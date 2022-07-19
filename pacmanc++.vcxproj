@@ -144,6 +144,7 @@
     <ClCompile Include="source\engine\scene.cpp" />
     <ClCompile Include="source\engine\scenefactory.cpp" />
     <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\mathvec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\actor.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="source\engine\inputsystem.h" />
     <ClInclude Include="source\engine\scene.h" />
     <ClInclude Include="source\engine\scenefactory.h" />
+    <ClInclude Include="source\mathvec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,6 +6,7 @@
 #include <string>
 #include "SDL.h"
 #include "component.h"
+#include ".././/mathvec.h"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -24,25 +25,24 @@ public:
 
 	std::string getName() { return name; }
 
-	void setX( const double xc ) { x = xc; }
-	const double getX() { return x; }
+	void setX( double xc ) { x = xc; }
+	double getX() const { return x; }
 
-	void setY( const double yc ) { y = yc; }
-	const double getY() { return y; }
+	void setY( double yc ) { y = yc; }
+	double getY() { return y; }
 
-	void setW( const double wc ) { w = wc; }
-	const double getW() { return w; }
+	void setW( double wc ) { w = wc; }
+	double getW() const { return w; }
 
-	void setH( const double hc ) { h = hc; }
-	const double getH() { return h; }
+	void setH( double hc ) { h = hc; }
+	double getH() const { return h; }
 
-	void setVx( const double Vx ) { vx = Vx; }
-	const double getVx() { return vx; }
+	void setV( const Vector2& vec2 ) { v.x = vec2.x; v.y = vec2.y; }
 
-	void setVy( const double Vy ) { vy = Vy; }
-	const double getVy() { return vy; }
+	void setVx( double vx ) { v.x = vx; }
+	void setVy( double vy ) { v.y = vy; }
 
-
+	const Vector2& getV() const { return v; }
 
 
 private:
@@ -52,8 +52,8 @@ private:
 	double y;
 	double w;
 	double h;
-	double vx;
-	double vy;
+	Vector2 v;
+	double speed;
 
 };
 

@@ -22,8 +22,8 @@ public:
 
     void onCollision( ColliderComponent* othercollider );
 
-    const double getKineticEn() { return kineticEn; }
-    const double getElasticity() { return elasticity; }
+    double getKineticEn() { return kineticEn; }
+    double getElasticity() { return elasticity; }
 
 private:
 

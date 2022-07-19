@@ -1,6 +1,8 @@
 #include <iostream>
 #include "kineticcollcomponent.h"
 #include "../engine.h"
+#include "../../mathvec.h"
+
 
 
 KineticCollComponent::KineticCollComponent( Actor* act, json AABB, json kineticprop ) : ColliderComponent(act, AABB) {
@@ -13,83 +15,27 @@ KineticCollComponent::KineticCollComponent( Actor* act, json AABB, json kineticp
 
 void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
     std::cout << "collision happening." << std::endl;
-
-    const SDL_Rect* bAABB = othercollider->getAABB();
-
-    SDL_Point aAABBlt = { aAABB.x, aAABB.y };
-    SDL_Point aAABBrt = { aAABB.x + aAABB.w, aAABB.y };
-    SDL_Point aAABBlb = { aAABB.x, aAABB.y + aAABB.h };
-    SDL_Point aAABBrb = { aAABB.x + aAABB.w, aAABB.y + aAABB.h };
-
-    double actorX   = actor->getX();
-    double actorY   = actor->getY();
-    double actorVx  = actor->getVx();
-    double actorVy  = actor->getVy();
-
-
-    if ( typeid( *othercollider ) == typeid( KineticCollComponent ) )
-    {
-        if ( elasticity > othercollider->getElasticity() ) 
-        {
-            //repositioning
-            if ( SDL_PointInRect( &aAABBrt, bAABB ) &&
-                 SDL_PointInRect( &aAABBrb, bAABB ) )
-            {
-                actor->setX( actorX - ( aAABB.x + aAABB.w - bAABB->x ) );
-                actor->setVx( -actorVx );
-            }
-            else if ( SDL_PointInRect( &aAABBlt, bAABB ) &&
-                      SDL_PointInRect( &aAABBlb, bAABB ) )
-            {
-                actor->setX( actorX + ( bAABB->x + bAABB->w - aAABB.x ) );
-                actor->setVx( -actorVx );
-            }
-            else if ( SDL_PointInRect( &aAABBlb, bAABB ) &&
-                      SDL_PointInRect( &aAABBrb, bAABB ) )
-            {
-                actor->setY( actorY - ( aAABB.y + aAABB.h - bAABB->y ) );
-                actor->setVy( -actorVy );
-            }
-            else if ( SDL_PointInRect( &aAABBlt, bAABB ) &&
-                      SDL_PointInRect( &aAABBrt, bAABB ) )
-            {
-                actor->setY( actorY + ( bAABB->y + bAABB->h - aAABB.y ) );
-                actor->setVy( -actorVy );
-            }
     
-            else if ( SDL_PointInRect( &aAABBrb, bAABB ) )
-            {
-                //actor->setX( actorX - ( aAABB.x + aAABB.w - bAABB->x ) );
-                actor->setY( actorY - ( aAABB.y + aAABB.h - bAABB->y ) );
-                actor->setVy( -actorVy );
-                
-            }
-            else if ( SDL_PointInRect( &aAABBlb, bAABB ) )
-            {
-                //actor->setX( actorX + ( bAABB->x + bAABB->w - aAABB.x ) );
-                actor->setY( actorY - ( aAABB.y + aAABB.h - bAABB->y ) );
-                actor->setVy( -actorVy );
-              
-            }
-            else if ( SDL_PointInRect( &aAABBlt, bAABB ) )
-            {
-               // actor->setX( actorX + ( bAABB->x + bAABB->w - aAABB.x ) );
-                actor->setY( actorY + ( bAABB->y + bAABB->h - aAABB.y ) );
-                actor->setVy( -actorVy );
-            }
-            else if ( SDL_PointInRect( &aAABBrt, bAABB ) )
-            {
-                //actor->setX( actorX - ( aAABB.x + aAABB.w - bAABB->x ) );
-                actor->setY( actorY + ( bAABB->y + bAABB->h - aAABB.y ) );
-                actor->setVy( -actorVy );
-            }
+    const SDL_Rect* bAABB = othercollider->getAABB();
+    const SDL_Point aCenter = { ( aAABB.x + aAABB.w ) / 2, ( aAABB.y + aAABB.h ) / 2 };
+    const SDL_Point bCenter = { ( bAABB->x + bAABB->w ) / 2, ( bAABB->y + bAABB->h ) / 2 };
 
+    Vector2 vec( aCenter.x - bCenter.x, bCenter.y - aCenter.y );
+    double distanceab = vec.length();
+
+    KineticCollComponent* kincoll = dynamic_cast<KineticCollComponent*>(othercollider);
+    if ( kincoll != NULL )
+    {
+        if ( elasticity > kincoll->getElasticity() ) 
+        {
+            if ( distanceab < 100 )
+            {
+                actor->setVy( -actor->getV().y );
+            }   
         }
 
-
-
         
-        if ( kineticEn + elasticity <= othercollider->getKineticEn() )
+        if ( kineticEn + elasticity <= kincoll->getKineticEn() )
         {
             //provvisorio, va eliminato l'actor dalla memoria e i suoi component
             actor->setX( -100 );
@@ -97,6 +43,10 @@ void KineticCollComponent::onCollision( ColliderComponent* othercollider ) {
         }
         
 
+    }
+    else
+    {
+        std::cout << "Dynamic cast failed of KineticCollComponent" << std::endl;
     }
 
 

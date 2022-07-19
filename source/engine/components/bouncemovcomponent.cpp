@@ -2,53 +2,56 @@
 #include "bouncemovcomponent.h"
 
 
-	BounceMovComponent::BounceMovComponent( Actor * actor, json boundrectDescr ) {
+	BounceMovComponent::BounceMovComponent( Actor* own, json boundrectDescr ) {
 
-		pActor		= actor;
+		owner		= own;
 		boundRect	= { boundrectDescr["x"], boundrectDescr["y"],
 						boundrectDescr["w"], boundrectDescr["h"]};
 		
+
 	}
 
 
 	void BounceMovComponent::update( const double deltatime ) {
 
-		pActor->setX( pActor->getX() + ( pActor->getVx() * deltatime ) );
-		pActor->setY( pActor->getY() + ( pActor->getVy() * deltatime ) );
+		owner->setX( owner->getX() + ( owner->getV().x * deltatime ));
+		owner->setY( owner->getY() + ( owner->getV().y * deltatime ) );
 
+		
 		//stop at bound rect
-		if ( pActor->getX() <= boundRect.x )
+		if ( owner->getX() <= boundRect.x )
 		{
-			pActor->setX( boundRect.x );
-			pActor->setVx( -(pActor->getVx()) );
+			owner->setX( boundRect.x );
+			owner->setVx( -owner->getV().x );
 		}
-        if ( pActor->getX() + pActor->getW() >= boundRect.w )
+        if ( owner->getX() + owner->getW() >= boundRect.w )
 		{
-			pActor->setX( boundRect.w - pActor->getW() );
-			pActor->setVx( -( pActor->getVx() ) );
-		}
-
-
-		if ( pActor->getY() <= boundRect.y )
-		{
-			pActor->setY( boundRect.y );
-			pActor->setVy( -( pActor->getVy() ) );
+			owner->setX( boundRect.w - owner->getW() );
+			owner->setVx( -owner->getV().x );
 		}
 
-		//tolto per gestire la palla in arkanoid
+		if ( owner->getY() <= boundRect.y )
+		{
+			owner->setY( boundRect.y );
+			owner->setVy( -owner->getV().y );
+		}
+		
+		if ( owner->getY() + owner->getH() >= boundRect.h )
+		{
+			owner->setY( boundRect.h - owner->getH() );
+			owner->setVy( -owner->getV().y );
+		}
+		
+
 		/*
-		if ( pActor->getY() + pActor->getH() >= boundRect.h )
+		if ( owner->getY() + owner->getH() >= boundRect.h )
 		{
-			pActor->setY( boundRect.h - pActor->getH() );
-			pActor->setVy( -( pActor->getVy() ) );
-		}
-		*/
-		if ( pActor->getY() + pActor->getH() >= boundRect.h )
-		{
-			pActor->setX( boundRect.w / 2 );
-			pActor->setY( boundRect.h / 2 );
+			owner->setX( boundRect.w / 2 );
+			owner->setY( boundRect.h / 2 );
 			
 		}
+		*/
+		
 	}
 
 

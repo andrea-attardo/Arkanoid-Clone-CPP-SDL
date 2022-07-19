@@ -22,10 +22,7 @@ public:
     const SDL_Rect* getAABB() { return &aAABB; }
 
     virtual void onCollision( ColliderComponent* othercollider ) {}
-
-    virtual const double getKineticEn() = 0;
-    virtual const double getElasticity() = 0;
-
+ 
 
 protected:
     

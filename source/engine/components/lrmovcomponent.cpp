@@ -22,17 +22,17 @@ LRMovComponent::LRMovComponent( Actor* act, json boundrDescr, double acceleratio
 void LRMovComponent::update( const double deltatime ) {
 
 
-    actor->setX( actor->getX() + ( actor->getVx() * deltatime ));
-    actor->setY( actor->getY() + ( actor->getVy() * deltatime ) );
+    actor->setX( actor->getX() + ( actor->getV().x * deltatime ));
+    actor->setY( actor->getY() + ( actor->getV().y * deltatime ) );
 
     //inertia
-    if ( actor->getVx() > 0 )
+    if ( actor->getV().x > 0 )
     {
-        actor->setVx( actor->getVx() -  ( 5 *  acc * deltatime ) );
+        actor->setVx( actor->getV().x -  ( 5 *  acc * deltatime ) );
     }
     else
     {
-       actor->setVx( actor->getVx() + ( 5 * acc * deltatime ) );
+       actor->setVx( actor->getV().x + ( 5 * acc * deltatime ) );
     }
   
 

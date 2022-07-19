@@ -26,29 +26,29 @@ FloatMovComponent::FloatMovComponent( Actor* act, json boundrDescr, double accel
 
 void FloatMovComponent::update(const double deltatime) {
 
-    actor->setX( actor->getX() + ( actor->getVx() * deltatime ));
-    actor->setY( actor->getY() + ( actor->getVy() * deltatime ) );
+    actor->setX( actor->getX() + ( actor->getV().x * deltatime ));
+    actor->setY( actor->getY() + ( actor->getV().y * deltatime ) );
 
 
     //inertia
-    if ( actor->getVx() > 0 )
+    if ( actor->getV().x > 0 )
     {
-        actor->setVx( actor->getVx() - ( acc * deltatime ) );
+        actor->setVx( actor->getV().x - ( acc * deltatime ) );
     }
     else
     {
 
-        actor->setVx( actor->getVx() + ( acc * deltatime ) );
+        actor->setVx( actor->getV().x + ( acc * deltatime ) );
     }
 
-    if ( actor->getVy() > 0 )
+    if ( actor->getV().y > 0 )
     {
-        actor->setVy( actor->getVy() - ( acc * deltatime ) );
+        actor->setVy( actor->getV().y - ( acc * deltatime ) );
     }
     else
     {
 
-        actor->setVy( actor->getVy() + ( acc * deltatime ) );
+        actor->setVy( actor->getV().y + ( acc * deltatime ) );
     }
 
     

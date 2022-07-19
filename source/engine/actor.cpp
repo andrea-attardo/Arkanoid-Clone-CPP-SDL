@@ -8,8 +8,9 @@ Actor::Actor(json actDescr) {
 	y		= actDescr["y"];
 	w		= actDescr["w"];
 	h		= actDescr["h"];
-	vx		= actDescr["vx"];
-	vy		= actDescr["vy"];
+	v.x		= actDescr["vx"];
+	v.y		= actDescr["vy"];
+	speed   = 400;
 
 }
 
