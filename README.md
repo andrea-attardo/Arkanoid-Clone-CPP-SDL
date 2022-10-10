@@ -1,9 +1,10 @@
-Arkanoid Clone
-C++
-SDL
-JSON
+Arkanoid Clone 
 
-micro 2D Engine from scratch
+C++ 2D Engine from scratch
 
+
+Dependencies:
+SDL2,
+JSONCPP
 
 current state: https://youtu.be/4ardWAvlVFs
