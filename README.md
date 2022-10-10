@@ -7,4 +7,12 @@ Dependencies:
 SDL2,
 JSONCPP
 
-current state: https://youtu.be/4ardWAvlVFs
+Video: 
+
+https://youtu.be/4ardWAvlVFs
+
+Screenshot:
+
+<img src="https://github.com/andrea-attardo/Arkanoid-Clone-CPP-SDL/blob/80fb6b1f06f80b66f66031972fb8732968144395/docs/myarkanoid.png" alt="drawing" width="300"/>
+
+
