@@ -1,11 +1,12 @@
-Arkanoid Clone 
+ARKANOID CLONE
 
 C++ 2D Engine from scratch
 
 
 Dependencies:
-SDL2,
-JSONCPP
+
+SDL2: https://wiki.libsdl.org/,
+JSONCPP: https://github.com/Kurento/jsoncpp
 
 Video: 
 
